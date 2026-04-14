@@ -21,6 +21,7 @@ export default function Footer() {
               <li><Link href="/vehicles" className="hover:text-white">Vehicle Recalls</Link></li>
               <li><Link href="/medications" className="hover:text-white">Medication Recalls</Link></li>
               <li><Link href="/products" className="hover:text-white">Product Recalls</Link></li>
+              <li><Link href="/brands" className="hover:text-white">Recalls by Brand</Link></li>
             </ul>
           </div>
           <div>
