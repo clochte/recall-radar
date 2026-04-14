@@ -6,6 +6,7 @@ import { CATEGORY_LABELS } from '@/lib/types';
 import type { RecallCategory } from '@/lib/types';
 import UrgencyBadge from '@/components/UrgencyBadge';
 import AdPlaceholder from '@/components/AdPlaceholder';
+import ShareButton from '@/components/ShareButton';
 
 const VALID_CATEGORIES: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
 
@@ -56,6 +57,8 @@ export default async function RecallDetailPage({ params }: Props) {
 
   const recall = await getRecallBySlug(category as RecallCategory, slug);
   if (!recall) notFound();
+
+  const pageUrl = `${process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.company'}/recalls/${recall.category}/${recall.slug}`;
 
   const formattedDate = new Date(recall.date).toLocaleDateString('en-US', {
     weekday: 'long',
@@ -117,18 +120,39 @@ export default async function RecallDetailPage({ params }: Props) {
           </div>
         </div>
 
-        <a
-          href={recall.sourceUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-5 py-3 bg-navy text-white font-semibold rounded-md hover:bg-navy-light transition-colors text-sm"
-        >
-          View Official Recall Notice →
-        </a>
+        <div className="flex gap-3 flex-wrap items-center">
+          <a
+            href={recall.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-navy text-white font-semibold rounded-md hover:bg-navy-light transition-colors text-sm"
+          >
+            View Official Recall Notice →
+          </a>
+          <ShareButton title={recall.title} url={pageUrl} />
+        </div>
 
         <p className="text-xs text-muted mt-3">
           Opens the official government source. Always refer to official sources for the most current information.
         </p>
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'Article',
+              headline: recall.title,
+              datePublished: recall.date,
+              description: recall.reason.slice(0, 160),
+              publisher: {
+                '@type': 'Organization',
+                name: 'Recall Radar',
+                url: 'https://recallradar.company',
+              },
+            }),
+          }}
+        />
       </article>
 
       <div className="mt-10">

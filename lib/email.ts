@@ -35,6 +35,48 @@ export async function sendDigest(
   });
 }
 
+export async function sendWelcomeEmail(email: string): Promise<void> {
+  const resend = getResend();
+  if (!resend) return;
+
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.company';
+  const unsubscribeUrl = `${baseUrl}/api/unsubscribe?email=${encodeURIComponent(email)}`;
+
+  const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/></head>
+<body style="margin:0;padding:0;background:#f9fafb;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr><td style="background:#1e3a5f;padding:20px 24px;">
+      <h1 style="color:white;margin:0;font-size:22px;">📡 Recall Radar</h1>
+      <p style="color:#93c5fd;margin:4px 0 0;font-size:13px;">Safety Recalls &amp; Alerts</p>
+    </td></tr>
+    <tr><td style="padding:32px 24px;">
+      <h2 style="color:#1e3a5f;margin:0 0 16px;">You're subscribed!</h2>
+      <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 16px;">
+        Welcome to Recall Radar. You'll receive safety recall alerts sourced from the FDA, NHTSA, and CPSC — covering food, medications, vehicles, and consumer products.
+      </p>
+      <p style="color:#374151;font-size:15px;line-height:1.6;margin:0 0 24px;">
+        Visit <a href="${baseUrl}" style="color:#2d5282;">${baseUrl}</a> any time to browse the latest recalls.
+      </p>
+      <p style="color:#9ca3af;font-size:12px;margin:0;">
+        This is not medical or legal advice. Always check official sources for the most current information.
+        <br/><a href="${unsubscribeUrl}" style="color:#9ca3af;">Unsubscribe</a>
+      </p>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+
+  await resend.emails.send({
+    from: 'Recall Radar <alerts@recallradar.com>',
+    to: email,
+    subject: "You're subscribed to Recall Radar alerts",
+    html,
+  });
+}
+
 function buildDigestHtml(recalls: Recall[], frequency: string, unsubscribeUrl: string): string {
   const rows = recalls
     .slice(0, 20)

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { saveSubscriber } from '@/lib/kv';
+import { sendWelcomeEmail } from '@/lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,7 +18,10 @@ export async function POST(request: NextRequest) {
 
     const freq = frequency === 'daily' ? 'daily' : 'weekly';
 
-    await saveSubscriber(email.toLowerCase().trim(), cats, freq);
+    const normalizedEmail = email.toLowerCase().trim();
+    await saveSubscriber(normalizedEmail, cats, freq);
+
+    sendWelcomeEmail(normalizedEmail).catch(() => {});
 
     return NextResponse.json({ ok: true });
   } catch {
