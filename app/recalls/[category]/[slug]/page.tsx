@@ -11,6 +11,32 @@ import RecallCard from '@/components/RecallCard';
 
 const VALID_CATEGORIES: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
 
+const WHAT_TO_DO: Record<RecallCategory, string[]> = {
+  food: [
+    'Stop consuming the product immediately.',
+    'Check your pantry, fridge, or freezer for the recalled item.',
+    'Do not donate the product — dispose of it or return to the store.',
+    'Contact the manufacturer or retailer for a refund.',
+  ],
+  vehicles: [
+    'Contact your dealership to schedule a free repair.',
+    "Check NHTSA's website with your VIN to confirm if your vehicle is affected.",
+    'Do not ignore the recall — safety defects can worsen over time.',
+  ],
+  medications: [
+    'Stop taking the medication if it matches the recalled lot number.',
+    'Contact your doctor or pharmacist before stopping any prescription.',
+    'Return the product to your pharmacy for a refund or replacement.',
+    "Call the manufacturer's hotline listed on the official recall notice.",
+  ],
+  products: [
+    'Stop using the product immediately.',
+    'Check the model number and date codes against the recall notice.',
+    "Follow the manufacturer's instructions for return, repair, or refund.",
+    'Keep children and pets away from the recalled item.',
+  ],
+};
+
 interface Props {
   params: Promise<{ category: string; slug: string }>;
 }
@@ -122,6 +148,18 @@ export default async function RecallDetailPage({ params }: Props) {
               <p className="text-gray-700 capitalize">{recall.severity}</p>
             </div>
           </div>
+        </div>
+
+        <div className="bg-blue-50 border border-blue-100 rounded-lg p-5 mb-6">
+          <p className="text-sm font-semibold text-navy mb-2">What to do if you&apos;re affected</p>
+          <ul className="space-y-1.5">
+            {WHAT_TO_DO[recall.category].map((step, i) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                <span className="text-blue-500 font-bold mt-0.5">→</span>
+                {step}
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="flex gap-3 flex-wrap items-center">

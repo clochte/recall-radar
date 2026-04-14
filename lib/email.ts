@@ -77,11 +77,8 @@ export async function sendWelcomeEmail(email: string): Promise<void> {
   });
 }
 
-function buildDigestHtml(recalls: Recall[], frequency: string, unsubscribeUrl: string): string {
-  const rows = recalls
-    .slice(0, 20)
-    .map(
-      (r) => `
+function buildRow(r: Recall): string {
+  return `
     <tr>
       <td style="padding:12px;border-bottom:1px solid #e5e7eb;">
         <span style="display:inline-block;background:${r.severity === 'urgent' ? '#fef2f2' : '#eff6ff'};color:${r.severity === 'urgent' ? '#dc2626' : '#2563eb'};font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;margin-bottom:6px;">
@@ -92,9 +89,30 @@ function buildDigestHtml(recalls: Recall[], frequency: string, unsubscribeUrl: s
         <span style="color:#374151;font-size:14px;margin-top:4px;display:block;">${r.reason.slice(0, 180)}${r.reason.length > 180 ? '…' : ''}</span><br/>
         <a href="${r.sourceUrl}" style="color:#2d5282;font-size:13px;">View official recall →</a>
       </td>
-    </tr>`
-    )
-    .join('');
+    </tr>`;
+}
+
+function buildDigestHtml(recalls: Recall[], frequency: string, unsubscribeUrl: string): string {
+  const sorted = [...recalls].sort((a, b) => {
+    const order = { urgent: 0, unknown: 1, voluntary: 2 };
+    return (order[a.severity] ?? 1) - (order[b.severity] ?? 1);
+  });
+
+  const urgent = sorted.filter(r => r.severity === 'urgent').slice(0, 10);
+  const other = sorted.filter(r => r.severity !== 'urgent').slice(0, 10);
+
+  const sectionHeader = (label: string) => `
+  <tr><td style="padding:8px 12px;background:#f3f4f6;">
+    <span style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;color:#6b7280;">${label}</span>
+  </td></tr>`;
+
+  const urgentRows = urgent.map(r => buildRow(r)).join('');
+  const otherRows = other.map(r => buildRow(r)).join('');
+
+  const rows = [
+    urgent.length ? sectionHeader('⚠ Urgent Recalls') + urgentRows : '',
+    other.length ? sectionHeader('Notices & Voluntary Recalls') + otherRows : '',
+  ].join('');
 
   return `
 <!DOCTYPE html>

@@ -2,14 +2,16 @@ import { getFoodRecalls } from './feeds/fda-food';
 import { getMedicationRecalls } from './feeds/fda-drug';
 import { getVehicleRecalls } from './feeds/nhtsa';
 import { getProductRecalls } from './feeds/cpsc';
+import { getUsdaFoodRecalls } from './feeds/usda';
 import type { Recall, RecallCategory } from './types';
 
 export async function getAllRecalls(): Promise<Recall[]> {
-  const [food, medications, vehicles, products] = await Promise.allSettled([
+  const [food, medications, vehicles, products, usdaFood] = await Promise.allSettled([
     getFoodRecalls(),
     getMedicationRecalls(),
     getVehicleRecalls(),
     getProductRecalls(),
+    getUsdaFoodRecalls(),
   ]);
 
   const all = [
@@ -17,6 +19,7 @@ export async function getAllRecalls(): Promise<Recall[]> {
     ...(medications.status === 'fulfilled' ? medications.value : []),
     ...(vehicles.status === 'fulfilled' ? vehicles.value : []),
     ...(products.status === 'fulfilled' ? products.value : []),
+    ...(usdaFood.status === 'fulfilled' ? usdaFood.value : []),
   ];
 
   return all.sort(
@@ -28,8 +31,14 @@ export async function getRecallsByCategory(
   category: RecallCategory
 ): Promise<Recall[]> {
   switch (category) {
-    case 'food':
-      return getFoodRecalls();
+    case 'food': {
+      const [fda, usda] = await Promise.allSettled([getFoodRecalls(), getUsdaFoodRecalls()]);
+      const combined = [
+        ...(fda.status === 'fulfilled' ? fda.value : []),
+        ...(usda.status === 'fulfilled' ? usda.value : []),
+      ];
+      return combined.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    }
     case 'medications':
       return getMedicationRecalls();
     case 'vehicles':
