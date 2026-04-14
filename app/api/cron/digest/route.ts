@@ -14,19 +14,22 @@ export async function GET(request: NextRequest) {
     getAllRecalls(),
   ]);
 
-  // Only include recalls from the last 24 hours for daily, 7 days for weekly
   const now = Date.now();
-  const recentRecalls = recalls.filter((r) => {
-    const age = now - new Date(r.date).getTime();
-    return age < 7 * 24 * 60 * 60 * 1000; // within 7 days
-  });
+  const isMonday = new Date().getUTCDay() === 1;
+
+  const dailyRecalls = recalls.filter((r) => now - new Date(r.date).getTime() < 24 * 60 * 60 * 1000);
+  const weeklyRecalls = recalls.filter((r) => now - new Date(r.date).getTime() < 7 * 24 * 60 * 60 * 1000);
 
   let sent = 0;
   let errors = 0;
 
   for (const subscriber of subscribers) {
+    // Weekly subscribers only get emails on Mondays
+    if (subscriber.frequency === 'weekly' && !isMonday) continue;
+
+    const recallsForSubscriber = subscriber.frequency === 'daily' ? dailyRecalls : weeklyRecalls;
     try {
-      await sendDigest(subscriber, recentRecalls);
+      await sendDigest(subscriber, recallsForSubscriber);
       sent++;
     } catch {
       errors++;

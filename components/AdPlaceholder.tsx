@@ -1,3 +1,7 @@
+'use client';
+
+import { useEffect } from 'react';
+
 type AdSlot = 'header-below' | 'sidebar' | 'in-feed' | 'recall-bottom';
 
 const slotStyles: Record<AdSlot, string> = {
@@ -7,11 +11,26 @@ const slotStyles: Record<AdSlot, string> = {
   'recall-bottom': 'w-full h-[250px]',
 };
 
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
+
 export default function AdPlaceholder({ slot }: { slot: AdSlot }) {
   const id = process.env.NEXT_PUBLIC_ADSENSE_ID;
+  const isReal = id && id !== 'ca-pub-PLACEHOLDER';
 
-  if (id && id !== 'ca-pub-PLACEHOLDER') {
-    // Production: real AdSense unit
+  useEffect(() => {
+    if (!isReal) return;
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // adsbygoogle not loaded yet
+    }
+  }, [isReal]);
+
+  if (isReal) {
     return (
       <div className={slotStyles[slot]}>
         <ins

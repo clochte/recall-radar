@@ -40,6 +40,15 @@ export async function saveSubscriber(
   ]);
 }
 
+export async function removeSubscriber(email: string): Promise<void> {
+  const redis = getRedis();
+  if (!redis) return;
+  await Promise.all([
+    redis.del(`sub:${email}`),
+    redis.srem('subscribers', email),
+  ]);
+}
+
 export async function getAllSubscribers(): Promise<Subscriber[]> {
   const redis = getRedis();
   if (!redis) return [];

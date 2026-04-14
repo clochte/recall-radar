@@ -23,7 +23,9 @@ export async function sendDigest(
 
   if (!filtered.length) return;
 
-  const html = buildDigestHtml(filtered, subscriber.frequency);
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.com';
+  const unsubscribeUrl = `${baseUrl}/api/unsubscribe?email=${encodeURIComponent(subscriber.email)}`;
+  const html = buildDigestHtml(filtered, subscriber.frequency, unsubscribeUrl);
 
   await resend.emails.send({
     from: 'Recall Radar <alerts@recallradar.com>',
@@ -33,7 +35,7 @@ export async function sendDigest(
   });
 }
 
-function buildDigestHtml(recalls: Recall[], frequency: string): string {
+function buildDigestHtml(recalls: Recall[], frequency: string, unsubscribeUrl: string): string {
   const rows = recalls
     .slice(0, 20)
     .map(
@@ -67,6 +69,7 @@ function buildDigestHtml(recalls: Recall[], frequency: string): string {
       <p style="color:#9ca3af;font-size:12px;margin-top:24px;">
         You're receiving this because you subscribed at Recall Radar. Data sourced from FDA, NHTSA, and CPSC.
         <br/>This is not medical or legal advice. Always check official sources.
+        <br/><a href="${unsubscribeUrl}" style="color:#9ca3af;">Unsubscribe</a>
       </p>
     </td></tr>
   </table>
