@@ -62,10 +62,12 @@ export async function getAllSubscribers(): Promise<Subscriber[]> {
   return results
     .map((r) => {
       try {
-        return typeof r === 'string' ? (JSON.parse(r) as Subscriber) : null;
+        if (!r) return null;
+        if (typeof r === 'string') return JSON.parse(r) as Subscriber;
+        return r as Subscriber;
       } catch {
         return null;
       }
     })
-    .filter((s): s is Subscriber => s !== null);
+    .filter((s): s is Subscriber => s !== null && typeof s.email === 'string');
 }
