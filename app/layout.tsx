@@ -5,7 +5,6 @@ import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import AdPlaceholder from '@/components/AdPlaceholder';
-import { Analytics } from '@vercel/analytics/next';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' });
 
@@ -32,6 +31,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${geist.variable} h-full antialiased`}>
       <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZJ7R8BN6MV"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-ZJ7R8BN6MV');
+          `}
+        </Script>
         {adsenseId && adsenseId !== 'ca-pub-PLACEHOLDER' && (
           <Script
             async
@@ -50,7 +62,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   );
