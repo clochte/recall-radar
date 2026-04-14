@@ -67,7 +67,7 @@ export default function RecallsExplorer({ recalls }: { recalls: Recall[] }) {
         Showing <strong>{filtered.length}</strong> recall{filtered.length !== 1 ? 's' : ''}
       </p>
 
-      <RecallGrid recalls={filtered} />
+      <RecallGrid recalls={filtered} now={Date.now()} />
     </div>
   );
 }

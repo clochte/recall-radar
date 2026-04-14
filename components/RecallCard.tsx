@@ -3,7 +3,7 @@ import type { Recall } from '@/lib/types';
 import { CATEGORY_LABELS, CATEGORY_COLORS } from '@/lib/types';
 import UrgencyBadge from './UrgencyBadge';
 
-export default function RecallCard({ recall }: { recall: Recall }) {
+export default function RecallCard({ recall, isNew }: { recall: Recall; isNew?: boolean }) {
   const formattedDate = new Date(recall.date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
@@ -19,6 +19,11 @@ export default function RecallCard({ recall }: { recall: Recall }) {
         >
           {CATEGORY_LABELS[recall.category]}
         </span>
+        {isNew && (
+          <span className="text-xs font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-green-100 text-green-700">
+            New
+          </span>
+        )}
       </div>
 
       <div>

@@ -7,6 +7,7 @@ import type { RecallCategory } from '@/lib/types';
 import UrgencyBadge from '@/components/UrgencyBadge';
 import AdPlaceholder from '@/components/AdPlaceholder';
 import ShareButton from '@/components/ShareButton';
+import RecallCard from '@/components/RecallCard';
 
 const VALID_CATEGORIES: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
 
@@ -57,6 +58,9 @@ export default async function RecallDetailPage({ params }: Props) {
 
   const recall = await getRecallBySlug(category as RecallCategory, slug);
   if (!recall) notFound();
+
+  const categoryRecalls = await getRecallsByCategory(recall.category as RecallCategory);
+  const related = categoryRecalls.filter((r) => r.slug !== recall.slug).slice(0, 3);
 
   const pageUrl = `${process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.company'}/recalls/${recall.category}/${recall.slug}`;
 
@@ -154,6 +158,17 @@ export default async function RecallDetailPage({ params }: Props) {
           }}
         />
       </article>
+
+      {related.length > 0 && (
+        <div className="mt-10">
+          <h2 className="text-base font-semibold text-navy mb-3">Related Recalls</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            {related.map((r) => (
+              <RecallCard key={r.id} recall={r} />
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="mt-10">
         <AdPlaceholder slot="recall-bottom" />
