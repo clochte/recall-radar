@@ -55,3 +55,32 @@ export async function getRecallBySlug(
   const recalls = await getRecallsByCategory(category);
   return recalls.find((r) => r.slug === slug) ?? null;
 }
+
+export async function getAllBrands(): Promise<{ slug: string; name: string; count: number }[]> {
+  const recalls = await getAllRecalls();
+  const map = new Map<string, { name: string; count: number }>();
+  for (const r of recalls) {
+    if (!r.brand) continue;
+    const slug = r.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    if (!slug) continue;
+    const existing = map.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      map.set(slug, { name: r.brand, count: 1 });
+    }
+  }
+  return Array.from(map.entries())
+    .map(([slug, { name, count }]) => ({ slug, name, count }))
+    .filter(b => b.count >= 1)
+    .sort((a, b) => b.count - a.count);
+}
+
+export async function getRecallsByBrand(brandSlug: string): Promise<Recall[]> {
+  const recalls = await getAllRecalls();
+  return recalls.filter((r) => {
+    if (!r.brand) return false;
+    const slug = r.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return slug === brandSlug;
+  });
+}

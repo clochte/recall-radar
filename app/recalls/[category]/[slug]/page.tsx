@@ -98,6 +98,8 @@ export default async function RecallDetailPage({ params }: Props) {
   });
 
   return (
+    <div className="flex gap-6 items-start">
+      <div className="flex-1 min-w-0">
     <div className="max-w-2xl mx-auto py-6">
       {/* Breadcrumb */}
       <nav className="text-sm text-muted mb-4 flex items-center gap-1.5">
@@ -220,6 +222,11 @@ export default async function RecallDetailPage({ params }: Props) {
           ← View all {CATEGORY_LABELS[recall.category]} recalls
         </Link>
       </div>
+    </div>
+      </div>
+      <aside className="hidden lg:block w-[300px] shrink-0 pt-20">
+        <AdPlaceholder slot="sidebar" />
+      </aside>
     </div>
   );
 }
