@@ -19,6 +19,9 @@ export const metadata: Metadata = {
     siteName: 'Recall Radar',
     type: 'website',
   },
+  verification: {
+    google: 'hWhfZGkPjcGrzs-byHhr6RV9SvxoaTXlzNIE6yqWeDY',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
