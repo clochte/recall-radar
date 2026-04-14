@@ -9,6 +9,7 @@ import AdPlaceholder from '@/components/AdPlaceholder';
 const geist = Geist({ subsets: ['latin'], variable: '--font-geist-sans' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.company'),
   title: {
     default: 'Recall Radar — Safety Recalls & Alerts',
     template: '%s | Recall Radar',
