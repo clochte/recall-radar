@@ -12,10 +12,7 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const recalls = await getAllRecalls();
   const urgentCount = recalls.filter((r) => r.severity === 'urgent').length;
-  const urgentRecent = recalls.filter(
-    (r) => r.severity === 'urgent' &&
-    Date.now() - new Date(r.date).getTime() < 7 * 24 * 60 * 60 * 1000
-  ).slice(0, 6);
+  const urgentRecent = recalls.filter((r) => r.severity === 'urgent').slice(0, 6);
 
   return (
     <div>
