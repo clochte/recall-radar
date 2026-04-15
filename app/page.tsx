@@ -3,6 +3,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { getAllRecalls } from '@/lib/recalls';
 import RecallsExplorer from '@/components/RecallsExplorer';
+import RecallCard from '@/components/RecallCard';
 
 export const metadata: Metadata = {
   title: 'Recall Radar — Safety Recalls & Alerts',
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 export default async function HomePage() {
   const recalls = await getAllRecalls();
   const urgentCount = recalls.filter((r) => r.severity === 'urgent').length;
+  const urgentRecent = recalls.filter(
+    (r) => r.severity === 'urgent' &&
+    Date.now() - new Date(r.date).getTime() < 7 * 24 * 60 * 60 * 1000
+  ).slice(0, 6);
 
   return (
     <div>
@@ -47,6 +52,20 @@ export default async function HomePage() {
           ))}
         </div>
       </div>
+
+      {urgentRecent.length > 0 && (
+        <div className="mb-8">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="w-2.5 h-2.5 rounded-full bg-urgent animate-pulse inline-block" />
+            <h2 className="text-lg font-bold text-navy">Urgent This Week</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+            {urgentRecent.map((recall) => (
+              <RecallCard key={recall.id} recall={recall} />
+            ))}
+          </div>
+        </div>
+      )}
 
       <Suspense fallback={<div className="py-8 text-muted text-sm">Loading recalls…</div>}>
         <RecallsExplorer recalls={recalls} />

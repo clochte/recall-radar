@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import type { Recall, RecallCategory } from '@/lib/types';
 import { CATEGORY_LABELS } from '@/lib/types';
 import RecallGrid from './RecallGrid';
@@ -30,6 +30,15 @@ export default function RecallsExplorer({ recalls }: { recalls: Recall[] }) {
       return true;
     });
   }, [recalls, query, category, days]);
+
+  const PAGE_SIZE = 24;
+  const [page, setPage] = useState(1);
+
+  // Reset to page 1 when filters change
+  useEffect(() => { setPage(1); }, [query, category, days]);
+
+  const paginated = filtered.slice(0, page * PAGE_SIZE);
+  const hasMore = paginated.length < filtered.length;
 
   return (
     <div>
@@ -67,7 +76,18 @@ export default function RecallsExplorer({ recalls }: { recalls: Recall[] }) {
         Showing <strong>{filtered.length}</strong> recall{filtered.length !== 1 ? 's' : ''}
       </p>
 
-      <RecallGrid recalls={filtered} now={Date.now()} />
+      <RecallGrid recalls={paginated} now={Date.now()} />
+
+      {hasMore && (
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => setPage((p) => p + 1)}
+            className="px-6 py-3 bg-card border border-border rounded-lg text-sm font-medium text-navy hover:bg-navy hover:text-white hover:border-navy transition-colors"
+          >
+            Load more ({filtered.length - paginated.length} remaining)
+          </button>
+        </div>
+      )}
     </div>
   );
 }

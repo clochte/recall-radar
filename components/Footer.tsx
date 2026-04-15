@@ -22,6 +22,7 @@ export default function Footer() {
               <li><Link href="/medications" className="hover:text-white">Medication Recalls</Link></li>
               <li><Link href="/products" className="hover:text-white">Product Recalls</Link></li>
               <li><Link href="/brands" className="hover:text-white">Recalls by Brand</Link></li>
+              <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             </ul>
           </div>
           <div>
@@ -38,6 +39,7 @@ export default function Footer() {
           <div className="flex gap-4">
             <Link href="/about" className="hover:text-white">About</Link>
             <Link href="/subscribe" className="hover:text-white">Subscribe</Link>
+            <Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link>
           </div>
         </div>
       </div>
