@@ -40,6 +40,7 @@ export default function Footer() {
             <Link href="/about" className="hover:text-white">About</Link>
             <Link href="/subscribe" className="hover:text-white">Subscribe</Link>
             <Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link>
+            <Link href="/privacy" className="hover:text-white">Privacy</Link>
           </div>
         </div>
       </div>
