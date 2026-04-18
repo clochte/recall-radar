@@ -183,18 +183,40 @@ export default async function RecallDetailPage({ params }: Props) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Article',
-              headline: recall.title,
-              datePublished: recall.date,
-              description: recall.reason.slice(0, 160),
-              publisher: {
-                '@type': 'Organization',
-                name: 'Recall Radar',
-                url: 'https://recallradar.company',
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'NewsArticle',
+                headline: recall.title,
+                datePublished: recall.date,
+                dateModified: recall.date,
+                description: recall.reason.slice(0, 160),
+                url: pageUrl,
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'Recall Radar',
+                  url: 'https://recallradar.company',
+                },
+                author: {
+                  '@type': 'Organization',
+                  name: 'Recall Radar',
+                },
+                about: recall.brand
+                  ? { '@type': 'Brand', name: recall.brand }
+                  : undefined,
+                articleSection: CATEGORY_LABELS[recall.category],
+                keywords: `recall, ${recall.category}, ${recall.brand ?? ''}, safety alert`,
               },
-            }),
+              {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://recallradar.company' },
+                  { '@type': 'ListItem', position: 2, name: CATEGORY_LABELS[recall.category], item: `https://recallradar.company/${recall.category}` },
+                  { '@type': 'ListItem', position: 3, name: recall.title, item: pageUrl },
+                ],
+              },
+            ]),
           }}
         />
       </article>

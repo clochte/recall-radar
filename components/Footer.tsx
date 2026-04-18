@@ -21,6 +21,8 @@ export default function Footer() {
               <li><Link href="/vehicles" className="hover:text-white">Vehicle Recalls</Link></li>
               <li><Link href="/medications" className="hover:text-white">Medication Recalls</Link></li>
               <li><Link href="/products" className="hover:text-white">Product Recalls</Link></li>
+              <li><Link href="/weekly" className="hover:text-white">New This Week</Link></li>
+              <li><Link href="/states" className="hover:text-white">Recalls by State</Link></li>
               <li><Link href="/brands" className="hover:text-white">Recalls by Brand</Link></li>
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
             </ul>
