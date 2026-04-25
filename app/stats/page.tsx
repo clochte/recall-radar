@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
+import { connection } from 'next/server';
 import { getAllRecalls, getAllBrands } from '@/lib/recalls';
 import Link from 'next/link';
-
-export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: 'Recall Statistics — By the Numbers',
@@ -15,6 +14,7 @@ function getMonthLabel(date: Date) {
 }
 
 export default async function StatsPage() {
+  await connection();
   const [recalls, brands] = await Promise.all([getAllRecalls(), getAllBrands()]);
 
   const now = new Date();
