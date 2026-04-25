@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { getAllRecalls, getAllBrands } from '@/lib/recalls';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Recall Statistics — By the Numbers',
   description:
