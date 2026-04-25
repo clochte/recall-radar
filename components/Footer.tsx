@@ -30,7 +30,9 @@ export default function Footer() {
           <div>
             <p className="text-white font-semibold text-sm mb-2">Resources</p>
             <ul className="text-xs space-y-1">
+              <li><Link href="/vin-lookup" className="hover:text-white">VIN Recall Lookup</Link></li>
               <li><Link href="/safety-guide" className="hover:text-white">Consumer Safety Guide</Link></li>
+              <li><Link href="/glossary" className="hover:text-white">Recall Glossary</Link></li>
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
               <li><Link href="/about" className="hover:text-white">About Recall Radar</Link></li>
               <li><Link href="/subscribe" className="hover:text-white">Email Alerts</Link></li>

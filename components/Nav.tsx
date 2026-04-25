@@ -5,6 +5,7 @@ const links = [
   { href: '/vehicles', label: 'Vehicles' },
   { href: '/medications', label: 'Medications' },
   { href: '/products', label: 'Products' },
+  { href: '/vin-lookup', label: 'VIN Lookup' },
   { href: '/weekly', label: 'This Week' },
   { href: '/brands', label: 'Brands' },
   { href: '/stats', label: 'Stats' },
