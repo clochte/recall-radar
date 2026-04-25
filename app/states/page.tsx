@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { getAllStateCounts } from '@/lib/recalls';
 
 export const metadata: Metadata = {
-  title: 'Recalls by State',
-  description: 'Browse safety recalls by US state — food, vehicles, medications, and products from FDA, NHTSA, and CPSC.',
+  title: 'Recalls by State — Find Local Safety Alerts',
+  description: 'Browse safety recalls mentioning each US state. Food, vehicle, medication, and consumer product recalls from FDA, NHTSA, USDA, and CPSC filtered by state name.',
 };
 
 export default async function StatesPage() {
@@ -16,8 +16,23 @@ export default async function StatesPage() {
     <div className="max-w-4xl mx-auto py-6">
       <div className="py-4 border-b border-border mb-6">
         <h1 className="text-2xl font-bold text-navy">Recalls by State</h1>
-        <p className="text-gray-600 mt-1 text-sm">
-          Browse safety recalls mentioning each US state, sourced from FDA, NHTSA, and CPSC.
+        <p className="text-gray-600 mt-1 text-sm max-w-2xl">
+          Browse safety recalls mentioning each US state, sourced from FDA, NHTSA, USDA, and CPSC.
+        </p>
+      </div>
+
+      <div className="bg-card border border-border rounded-lg p-4 mb-6 text-sm text-gray-600 leading-relaxed max-w-2xl">
+        <p>
+          Many recalls specifically reference distribution regions, manufacturing facilities, or
+          retail locations by state. A food recall may list the states where a contaminated product
+          was distributed; a vehicle recall may name states where affected units were sold; a product
+          recall may call out retailers in specific markets.
+        </p>
+        <p className="mt-2">
+          The counts below reflect recalls whose official text mentions each state by name. Select a
+          state to see those recalls. This is not a complete picture of all recalls that may be
+          relevant to residents of that state — always check category pages for the full list of
+          active recalls.
         </p>
       </div>
 

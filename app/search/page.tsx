@@ -5,7 +5,8 @@ import RecallGrid from '@/components/RecallGrid';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Search Recalls',
+  title: 'Search Recalls — Find Specific Products, Brands & Hazards',
+  description: 'Search across all FDA, NHTSA, USDA, and CPSC recalls by product name, brand, hazard type, or keyword.',
 };
 
 interface Props {
@@ -50,21 +51,38 @@ async function SearchResults({ searchParams }: { searchParams: Promise<{ q?: str
           <RecallGrid recalls={results} />
         </>
       ) : (
-        <div className="py-12 text-center text-muted">
-          <p className="text-lg">Enter a keyword to search all recalls.</p>
-          <p className="text-sm mt-1">
-            Try searching for a product name, brand, or hazard like &quot;listeria&quot; or &quot;fire risk&quot;.
+        <div>
+          <p className="text-sm text-gray-600 mb-6">
+            Search across all active recalls from the FDA, NHTSA, USDA, and CPSC by product name,
+            brand, hazard type, or keyword. Results include food, vehicle, medication, and consumer product recalls.
           </p>
-          <div className="flex flex-wrap justify-center gap-2 mt-4">
-            {['listeria', 'fire risk', 'allergen', 'brake', 'salmonella'].map((term) => (
-              <Link
-                key={term}
-                href={`/search?q=${encodeURIComponent(term)}`}
-                className="px-3 py-1.5 bg-card border border-border rounded-full text-sm hover:bg-navy hover:text-white hover:border-navy transition-colors"
-              >
-                {term}
-              </Link>
-            ))}
+          <div className="mb-8">
+            <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-3">Common searches</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                { term: 'listeria', desc: 'Listeria monocytogenes contamination in food products' },
+                { term: 'salmonella', desc: 'Salmonella contamination recalls across food categories' },
+                { term: 'allergen', desc: 'Undeclared allergens including peanuts, milk, and wheat' },
+                { term: 'fire risk', desc: 'Products recalled for fire, burn, or overheating hazards' },
+                { term: 'e. coli', desc: 'E. coli contamination in produce, meat, and packaged foods' },
+                { term: 'airbag', desc: 'Vehicle airbag defects and inflator recalls' },
+                { term: 'brake', desc: 'Brake system defects and failure recalls' },
+                { term: 'choking', desc: 'Products recalled for choking hazard risk' },
+                { term: 'contamination', desc: 'Foreign material or chemical contamination recalls' },
+                { term: 'mislabeled', desc: 'Recalls due to incorrect or missing label information' },
+              ].map(({ term, desc }) => (
+                <Link
+                  key={term}
+                  href={`/search?q=${encodeURIComponent(term)}`}
+                  className="flex items-start gap-3 px-4 py-3 bg-card border border-border rounded-lg hover:border-navy hover:bg-navy/5 transition-colors"
+                >
+                  <div>
+                    <p className="text-sm font-medium text-navy">{term}</p>
+                    <p className="text-xs text-muted mt-0.5">{desc}</p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       )}

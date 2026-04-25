@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-dark text-white/70 mt-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-8">
           <div>
             <p className="text-white font-semibold text-sm mb-2">📡 Recall Radar</p>
             <p className="text-xs leading-relaxed">
@@ -24,7 +24,18 @@ export default function Footer() {
               <li><Link href="/weekly" className="hover:text-white">New This Week</Link></li>
               <li><Link href="/states" className="hover:text-white">Recalls by State</Link></li>
               <li><Link href="/brands" className="hover:text-white">Recalls by Brand</Link></li>
+              <li><Link href="/stats" className="hover:text-white">Statistics</Link></li>
+            </ul>
+          </div>
+          <div>
+            <p className="text-white font-semibold text-sm mb-2">Resources</p>
+            <ul className="text-xs space-y-1">
+              <li><Link href="/safety-guide" className="hover:text-white">Consumer Safety Guide</Link></li>
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
+              <li><Link href="/about" className="hover:text-white">About Recall Radar</Link></li>
+              <li><Link href="/subscribe" className="hover:text-white">Email Alerts</Link></li>
+              <li><Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link></li>
+              <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
             </ul>
           </div>
           <div>
@@ -33,6 +44,7 @@ export default function Footer() {
               <li><a href="https://www.fda.gov" target="_blank" rel="noopener noreferrer" className="hover:text-white">FDA (Food &amp; Drug)</a></li>
               <li><a href="https://www.nhtsa.gov" target="_blank" rel="noopener noreferrer" className="hover:text-white">NHTSA (Vehicles)</a></li>
               <li><a href="https://www.cpsc.gov" target="_blank" rel="noopener noreferrer" className="hover:text-white">CPSC (Consumer Products)</a></li>
+              <li><a href="https://www.fsis.usda.gov" target="_blank" rel="noopener noreferrer" className="hover:text-white">USDA FSIS (Meat &amp; Poultry)</a></li>
             </ul>
           </div>
         </div>

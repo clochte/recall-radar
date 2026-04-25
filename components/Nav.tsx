@@ -7,6 +7,8 @@ const links = [
   { href: '/products', label: 'Products' },
   { href: '/weekly', label: 'This Week' },
   { href: '/brands', label: 'Brands' },
+  { href: '/stats', label: 'Stats' },
+  { href: '/safety-guide', label: 'Safety Guide' },
   { href: '/search', label: 'Search' },
 ];
 

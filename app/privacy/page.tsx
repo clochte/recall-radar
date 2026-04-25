@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Privacy policy for Recall Radar and ClearView Magnifier.',
+  description: 'Privacy policy for Recall Radar, ClearView Magnifier, and Cozy Word Search.',
 };
 
 export default function PrivacyPage() {
@@ -16,9 +16,9 @@ export default function PrivacyPage() {
         <section>
           <h2 className="font-semibold text-navy text-base mb-2">1. Overview</h2>
           <p>
-            This privacy policy applies to Recall Radar (recallradar.company) and ClearView Magnifier
-            (the mobile app). We are committed to protecting your privacy. This policy explains what
-            data we collect, how we use it, and your choices.
+            This privacy policy applies to Recall Radar (recallradar.company), ClearView Magnifier,
+            and Cozy Word Search (mobile apps). We are committed to protecting your privacy. This
+            policy explains what data we collect, how we use it, and your choices.
           </p>
         </section>
 
@@ -69,7 +69,26 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-semibold text-navy text-base mb-2">5. Children's Privacy</h2>
+          <h2 className="font-semibold text-navy text-base mb-2">5. Cozy Word Search — Data We Collect</h2>
+          <p className="mb-2">
+            <strong>On-device storage only:</strong> Cozy Word Search stores game progress, puzzle
+            completion history, settings, and streak statistics locally on your device using
+            AsyncStorage. This data never leaves your device and is not transmitted to any server.
+          </p>
+          <p className="mb-2">
+            <strong>Advertising:</strong> The free version of Cozy Word Search may display ads
+            served by Google AdMob. AdMob may collect anonymous device identifiers for ad
+            personalization. See Google's privacy policy for details.
+          </p>
+          <p>
+            <strong>Purchases:</strong> If you purchase "Remove Ads," the transaction is processed
+            by Google Play. We store only a local record that the purchase was made — no payment
+            information is collected by us.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="font-semibold text-navy text-base mb-2">6. Children's Privacy</h2>
           <p>
             Neither Recall Radar nor ClearView Magnifier is directed at children under 13. We do
             not knowingly collect personal information from children under 13.
@@ -77,7 +96,7 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-semibold text-navy text-base mb-2">6. Data Retention</h2>
+          <h2 className="font-semibold text-navy text-base mb-2">7. Data Retention</h2>
           <p>
             Email subscription data is retained until you unsubscribe. You can unsubscribe at any
             time via the link in any digest email or at{' '}
@@ -88,18 +107,18 @@ export default function PrivacyPage() {
         </section>
 
         <section>
-          <h2 className="font-semibold text-navy text-base mb-2">7. Third-Party Services</h2>
+          <h2 className="font-semibold text-navy text-base mb-2">8. Third-Party Services</h2>
           <ul className="list-disc list-inside space-y-1">
             <li>Google Analytics — anonymous site usage tracking</li>
             <li>Google AdSense — display advertising on Recall Radar</li>
-            <li>Google AdMob — in-app advertising in ClearView</li>
+            <li>Google AdMob — in-app advertising in ClearView and Cozy Word Search</li>
             <li>Resend — email delivery for recall digests</li>
             <li>Upstash — secure storage of email subscription data</li>
           </ul>
         </section>
 
         <section>
-          <h2 className="font-semibold text-navy text-base mb-2">8. Contact</h2>
+          <h2 className="font-semibold text-navy text-base mb-2">9. Contact</h2>
           <p>
             For privacy questions, contact us at{' '}
             <a href="mailto:privacy@recallradar.company" className="text-navy-light hover:underline">
