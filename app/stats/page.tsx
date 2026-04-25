@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { connection } from 'next/server';
 import { getAllRecalls, getAllBrands } from '@/lib/recalls';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Recall Statistics — By the Numbers',
@@ -13,7 +14,20 @@ function getMonthLabel(date: Date) {
   return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
 }
 
-export default async function StatsPage() {
+export default function StatsPage() {
+  return (
+    <Suspense fallback={
+      <div className="max-w-4xl mx-auto py-8">
+        <h1 className="text-2xl font-bold text-navy mb-2">Recall Statistics</h1>
+        <p className="text-gray-600 text-sm">Loading live statistics…</p>
+      </div>
+    }>
+      <StatsContent />
+    </Suspense>
+  );
+}
+
+async function StatsContent() {
   await connection();
   const [recalls, brands] = await Promise.all([getAllRecalls(), getAllBrands()]);
 
