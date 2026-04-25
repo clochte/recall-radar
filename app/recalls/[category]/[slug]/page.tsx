@@ -12,6 +12,29 @@ import RecallCard from '@/components/RecallCard';
 
 const VALID_CATEGORIES: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
 
+const RELATED_RESOURCES: Record<RecallCategory, { label: string; href: string; desc: string }[]> = {
+  food: [
+    { label: 'Food recall safety guide', href: '/safety-guide', desc: 'What to do with recalled food, how to get a refund, and how to protect vulnerable family members.' },
+    { label: 'Food recall FAQs', href: '/faq', desc: 'Answers to common questions about food recalls, lot numbers, and market withdrawals.' },
+    { label: 'Browse all food recalls', href: '/food', desc: 'See all active FDA and USDA food safety recalls.' },
+  ],
+  vehicles: [
+    { label: 'Vehicle recall safety guide', href: '/safety-guide', desc: 'How to check your VIN, schedule a free dealer repair, and what to do while waiting.' },
+    { label: 'Vehicle recall FAQs', href: '/faq', desc: "Answers about free repairs, dealership scheduling, and used car recalls." },
+    { label: 'Browse all vehicle recalls', href: '/vehicles', desc: 'See all active NHTSA safety campaigns.' },
+  ],
+  medications: [
+    { label: 'Medication recall safety guide', href: '/safety-guide', desc: 'How to identify your lot number, safely dispose of recalled drugs, and talk to your pharmacist.' },
+    { label: 'Medication recall FAQs', href: '/faq', desc: 'What to do if your medication is recalled and how refunds work.' },
+    { label: 'Browse all medication recalls', href: '/medications', desc: 'See all active FDA drug and medical device recalls.' },
+  ],
+  products: [
+    { label: 'Consumer product safety guide', href: '/safety-guide', desc: 'How to get a refund or free repair and how to report an unsafe product to the CPSC.' },
+    { label: 'Product recall FAQs', href: '/faq', desc: 'Common questions about refunds, replacements, and registering products.' },
+    { label: 'Browse all product recalls', href: '/products', desc: 'See all active CPSC consumer product recalls.' },
+  ],
+};
+
 const WHAT_TO_DO: Record<RecallCategory, string[]> = {
   food: [
     'Stop consuming the product immediately.',
@@ -253,7 +276,26 @@ export default async function RecallDetailPage({ params }: Props) {
         <AdPlaceholder slot="recall-bottom" />
       </div>
 
-      <div className="mt-8 pt-6 border-t border-border">
+      <div className="mt-10 pt-6 border-t border-border">
+        <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-3">Related resources</p>
+        <div className="space-y-2">
+          {RELATED_RESOURCES[recall.category].map((res) => (
+            <Link
+              key={res.href + res.label}
+              href={res.href}
+              className="flex items-start gap-2 group"
+            >
+              <span className="text-navy-light text-sm mt-0.5 shrink-0">→</span>
+              <div>
+                <span className="text-sm text-navy group-hover:underline font-medium">{res.label}</span>
+                <p className="text-xs text-gray-500 leading-relaxed">{res.desc}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-6 pt-4 border-t border-border">
         <Link
           href={`/${recall.category}`}
           className="text-sm text-navy-light hover:underline"
