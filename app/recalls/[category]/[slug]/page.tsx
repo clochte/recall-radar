@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getRecallBySlug, getRecallsByCategory } from '@/lib/recalls';
 import { CATEGORY_LABELS } from '@/lib/types';
 import type { RecallCategory } from '@/lib/types';
+import { getHazardInfo } from '@/lib/hazard';
 import UrgencyBadge from '@/components/UrgencyBadge';
 import AdPlaceholder from '@/components/AdPlaceholder';
 import ShareButton from '@/components/ShareButton';
@@ -163,6 +164,22 @@ export default async function RecallDetailPage({ params }: Props) {
             ))}
           </ul>
         </div>
+
+        {(() => {
+          const hazard = getHazardInfo(recall);
+          if (!hazard) return null;
+          return (
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mb-6">
+              <p className="text-sm font-semibold text-navy mb-2">{hazard.title}</p>
+              <p className="text-sm text-gray-700 leading-relaxed">{hazard.body}</p>
+              {hazard.tip && (
+                <p className="text-sm text-amber-800 mt-3 font-medium">
+                  ⚠ {hazard.tip}
+                </p>
+              )}
+            </div>
+          );
+        })()}
 
         <div className="flex gap-3 flex-wrap items-center">
           <a
