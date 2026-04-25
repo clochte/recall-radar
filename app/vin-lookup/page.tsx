@@ -201,21 +201,11 @@ async function VinResults({ vin }: { vin: string }) {
   }
 }
 
-export default async function VinLookupPage({ searchParams }: Props) {
+async function VinLookupContent({ searchParams }: Props) {
   const { vin } = await searchParams;
-
   return (
-    <div className="max-w-2xl mx-auto py-8">
-      <h1 className="text-2xl font-bold text-navy mb-2">Vehicle Recall Lookup by VIN</h1>
-      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
-        Enter your 17-character Vehicle Identification Number to check for open NHTSA safety recalls.
-        Your VIN can be found on the driver&apos;s door jamb, dashboard (visible through the windshield),
-        or your vehicle registration and insurance documents. Recall repairs at authorized dealerships
-        are always <strong>free of charge</strong>.
-      </p>
-
+    <>
       <VinForm initialVin={vin ?? ''} />
-
       {vin && (
         <div className="mt-6">
           <Suspense
@@ -229,13 +219,31 @@ export default async function VinLookupPage({ searchParams }: Props) {
           </Suspense>
         </div>
       )}
+    </>
+  );
+}
+
+export default function VinLookupPage({ searchParams }: Props) {
+  return (
+    <div className="max-w-2xl mx-auto py-8">
+      <h1 className="text-2xl font-bold text-navy mb-2">Vehicle Recall Lookup by VIN</h1>
+      <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+        Enter your 17-character Vehicle Identification Number to check for open NHTSA safety recalls.
+        Your VIN can be found on the driver&apos;s door jamb, dashboard (visible through the windshield),
+        or your vehicle registration and insurance documents. Recall repairs at authorized dealerships
+        are always <strong>free of charge</strong>.
+      </p>
+
+      <Suspense fallback={<VinForm initialVin="" />}>
+        <VinLookupContent searchParams={searchParams} />
+      </Suspense>
 
       <div className="mt-10 bg-card border border-border rounded-lg p-5">
         <p className="text-sm font-semibold text-navy mb-3">Where to find your VIN</p>
         <ul className="space-y-2 text-sm text-gray-600">
           {[
-            ['Driver\'s door jamb', 'A sticker on the inside edge of the driver\'s door frame — the most reliable location.'],
-            ['Dashboard', 'Visible through the windshield on the lower driver\'s side corner.'],
+            ["Driver's door jamb", "A sticker on the inside edge of the driver's door frame — the most reliable location."],
+            ['Dashboard', "Visible through the windshield on the lower driver's side corner."],
             ['Vehicle title and registration', 'Printed on all official ownership and registration documents.'],
             ['Insurance card', 'Most insurance ID cards list the VIN.'],
             ['Engine compartment', 'Often stamped on the firewall or engine block.'],
@@ -261,16 +269,10 @@ export default async function VinLookupPage({ searchParams }: Props) {
       </div>
 
       <div className="mt-6 pt-4 border-t border-border flex flex-wrap gap-3">
-        <Link
-          href="/vehicles"
-          className="text-sm text-navy-light hover:underline"
-        >
+        <Link href="/vehicles" className="text-sm text-navy-light hover:underline">
           ← Browse all vehicle recalls
         </Link>
-        <Link
-          href="/safety-guide"
-          className="text-sm text-navy-light hover:underline"
-        >
+        <Link href="/safety-guide" className="text-sm text-navy-light hover:underline">
           Vehicle safety guide →
         </Link>
       </div>
