@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { getAllRecalls, getAllBrands, US_STATES } from '@/lib/recalls';
+import { ARTICLES } from '@/lib/articles';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://recallradar.company';
@@ -20,6 +21,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/stats`, changeFrequency: 'daily', priority: 0.7 },
     { url: `${baseUrl}/faq`, changeFrequency: 'monthly', priority: 0.65 },
     { url: `${baseUrl}/subscribe`, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${baseUrl}/articles`, changeFrequency: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/contact`, changeFrequency: 'yearly', priority: 0.4 },
     { url: `${baseUrl}/about`, changeFrequency: 'monthly', priority: 0.55 },
     { url: `${baseUrl}/privacy`, changeFrequency: 'monthly', priority: 0.4 },
   ];
@@ -45,5 +48,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticRoutes, ...recallRoutes, ...brandRoutes, ...stateRoutes];
+  const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
+    url: `${baseUrl}/articles/${a.slug}`,
+    lastModified: new Date(a.publishedDate),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticRoutes, ...recallRoutes, ...brandRoutes, ...stateRoutes, ...articleRoutes];
 }

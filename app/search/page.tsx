@@ -7,6 +7,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Search Recalls — Find Specific Products, Brands & Hazards',
   description: 'Search across all FDA, NHTSA, USDA, and CPSC recalls by product name, brand, hazard type, or keyword.',
+  robots: { index: false },
 };
 
 interface Props {

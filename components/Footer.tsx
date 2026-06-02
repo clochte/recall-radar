@@ -33,11 +33,14 @@ export default function Footer() {
               <li><Link href="/vin-lookup" className="hover:text-white">VIN Recall Lookup</Link></li>
               <li><Link href="/safety-guide" className="hover:text-white">Consumer Safety Guide</Link></li>
               <li><Link href="/glossary" className="hover:text-white">Recall Glossary</Link></li>
+              <li><Link href="/articles" className="hover:text-white">Safety Articles</Link></li>
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
               <li><Link href="/about" className="hover:text-white">About Recall Radar</Link></li>
+              <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
               <li><Link href="/subscribe" className="hover:text-white">Email Alerts</Link></li>
               <li><Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link></li>
               <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-white">Terms of Use</Link></li>
             </ul>
           </div>
           <div>
@@ -54,6 +57,7 @@ export default function Footer() {
           <p>© 2025 Recall Radar. Data sourced from public government feeds.</p>
           <div className="flex gap-4">
             <Link href="/about" className="hover:text-white">About</Link>
+            <Link href="/contact" className="hover:text-white">Contact</Link>
             <Link href="/subscribe" className="hover:text-white">Subscribe</Link>
             <Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link>
             <Link href="/privacy" className="hover:text-white">Privacy</Link>
