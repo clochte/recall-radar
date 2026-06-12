@@ -1418,6 +1418,81 @@ export const ARTICLES: Article[] = [
       { label: 'Why people never hear about recalls', href: '/articles/why-people-never-hear-about-recalls' },
     ],
   },
+  {
+    slug: 'already-used-recalled-product',
+    title: 'I Already Used a Recalled Product — What Do I Do Now?',
+    metaDescription:
+      "Finding out a product you already consumed, took, or used was recalled is stressful. Here's what to actually do — for food, medications, vehicles, and consumer products — based on what the risk actually is.",
+    publishedDate: '2026-06-12',
+    readingMinutes: 7,
+    category: 'Consumer Safety',
+    intro:
+      "Recalls are discovered at the wrong time almost as often as the right time. You see the headline after the food is gone, find the notice on a medication you've been taking for a month, or check your VIN and find an open recall you never knew about. The question \"is it too late?\" depends entirely on what you used, what the hazard was, and how long ago. Here's what to actually do in each scenario — without the generic advice to \"see a doctor immediately\" for everything.",
+    sections: [
+      {
+        heading: 'Step one: confirm your specific product was actually recalled',
+        body: [
+          'Before doing anything else, confirm that your product is actually covered by the recall. Recalls almost never apply to an entire brand — they target specific lot numbers, date codes, UPCs, or model numbers from a specific production run. Finding the same brand in the news does not mean your specific product is recalled.',
+          'If you still have the packaging: look up the lot number, best-by date, and UPC against the recall notice. If all three match, you have confirmed exposure. If any of those identifiers differ from what the recall lists, your product is not part of this recall.',
+          'If you no longer have the packaging: try to reconstruct from receipts, store loyalty card history, or memory of when and where you bought the product. If you genuinely cannot confirm a lot number match, your level of concern should be proportional to your risk factors — a healthy adult who ate food from the rough time period of a Listeria recall is in a different situation than a pregnant woman who is certain she ate from that specific lot.',
+        ],
+      },
+      {
+        heading: 'If you already ate recalled food',
+        body: [
+          'For most people in most food recalls, the outcome is monitoring, not emergency care. The key variables are: what pathogen was involved, how long ago you ate it, and what your individual risk profile is.',
+          'Listeria (monocytogenes) is the most serious foodborne pathogen in recall contexts. Symptoms — fever, muscle aches, nausea, diarrhea, sometimes stiff neck or confusion — can appear anywhere from 1 day to 70 days after exposure, most commonly 1 to 4 weeks. The risk is disproportionately serious for pregnant women (miscarriage, stillbirth, premature delivery, infection of the newborn), adults over 65, and immunocompromised individuals. If you fall into any of these groups and believe you consumed a recalled product involving Listeria, call your healthcare provider today — do not wait for symptoms. If you are otherwise healthy, monitor yourself and seek care if you develop fever, severe headache, stiff neck, or gastrointestinal symptoms.',
+          'Salmonella symptoms typically appear 6 hours to 6 days after exposure and last 4 to 7 days. Most healthy adults recover without medical treatment. Seek care if you have high fever (over 102°F), bloody diarrhea, signs of dehydration, or if symptoms last more than a week. Young children, the elderly, and immunocompromised people are at higher risk of serious illness.',
+          'E. coli O157:H7 and other Shiga toxin-producing strains are more dangerous. Symptoms appear 3 to 4 days after exposure. Seek care promptly if you develop bloody diarrhea — this can signal hemolytic uremic syndrome (HUS), a potentially life-threatening kidney complication, especially in children under 5. Do not take anti-diarrheal medications, which may worsen outcomes.',
+          'For allergen recalls (undeclared peanuts, tree nuts, milk, etc.): if you have a known allergy and consumed the product and had no reaction, you may have been lucky — the contamination may not have been uniform across all units. If you had any reaction at all, document it and mention it to your allergist. If you carry an epinephrine auto-injector, monitor yourself closely for delayed reactions over the next few hours.',
+          'For foreign material recalls (metal fragments, glass): if you ate the product and did not bite or feel anything sharp, you were likely unaffected. If you experienced any mouth pain, tooth damage, or swallowed something unexpectedly hard, seek medical evaluation.',
+        ],
+      },
+      {
+        heading: 'If you already took a recalled medication',
+        body: [
+          'The critical rule: do not stop taking a prescription medication without first consulting your doctor or pharmacist — regardless of the recall. For medications like blood pressure drugs, antidepressants, antiseizure medications, and blood thinners, abrupt discontinuation carries serious risks that may outweigh the recall hazard.',
+          'Call your pharmacy as soon as possible. They can look up the lot number of your specific dispensed prescription, confirm whether your lot is affected, and arrange a replacement from an unaffected lot at no additional cost. If the lot number is not on your bottle, the pharmacy has dispensing records.',
+          'If your lot is affected and the recall involves serious contamination (nitrosamines, sterility failure, superpotency), tell your doctor. For most recalls of this type, the risk from past exposure is real but cannot be undone — your doctor may recommend monitoring or additional testing depending on the medication and the nature of the contamination. For nitrosamine contamination specifically, which involves probable carcinogens, the FDA and most clinicians note that the risk from a finite period of exposure is low in absolute terms, particularly if the recall was issued promptly.',
+          'If your lot is affected and the recall involves sub-potency (the drug had less active ingredient than labeled), discuss with your doctor whether your condition was undertreated during the exposure period. For conditions like hypertension or diabetes, a period of subtherapeutic dosing may warrant additional monitoring.',
+          'Report any adverse effects to FDA MedWatch at fda.gov/safety/medwatch or 1-800-FDA-1088. This is especially important if you experienced an unexpected health event during the period you were taking the recalled medication.',
+        ],
+      },
+      {
+        heading: 'If you have been driving a recalled vehicle',
+        body: [
+          'For the vast majority of vehicle recalls, continuing to drive the vehicle does not create an urgent medical situation. Vehicle defects typically reduce safety in specific, uncommon circumstances — a brake component that may fail under extreme conditions, an airbag that may not deploy correctly in a crash, a software issue that affects one particular warning system. Driving the car to work every day without incident does not mean you were harmed.',
+          'The exception is vehicles with a park-it warning. NHTSA issues park-it advisories when a defect creates an elevated risk of fire that can occur without warning — most commonly involving battery failures in electric and hybrid vehicles. If your vehicle has an active park-it advisory and you have been parking it in an enclosed garage, stop doing that immediately. Move it to an outdoor parking area until the recall repair is completed.',
+          'If you have been driving a recalled vehicle for an extended period, the main action item is to schedule the free recall repair. There is no deadline — vehicle recall repairs remain available indefinitely. Contact any franchised dealer for your vehicle\'s make, provide your VIN and the NHTSA campaign number for the recall, and schedule the repair. If parts are on backorder, get on the waiting list.',
+          'You do not need to stop driving the vehicle while waiting for the repair in most cases. If the defect is severe enough to warrant avoiding the vehicle, NHTSA will say so explicitly in the recall notice.',
+        ],
+      },
+      {
+        heading: 'If you have been using a recalled consumer product',
+        body: [
+          'Stop using the product now — this is the consistent advice regardless of how long you have been using it. For a product recalled for fire or electrical hazard, the risk continues for as long as the product is in use. There is no "I already used it so it doesn\'t matter anymore" logic that applies to ongoing fire or shock risks.',
+          'If you experienced any injury or near-miss related to the recalled product — a shock, a burn, a cut, a product that caught fire or smoked — document it and file a report at SaferProducts.gov. This information is valuable for CPSC investigations and may help other consumers. It also preserves a record if you later pursue a product liability claim.',
+          'For children\'s products — toys, cribs, car seats, sleep products — stop use immediately and follow the remedy instructions. The hazards these products are recalled for (choking, strangulation, structural failure) can cause harm in a single incident. Past safe use does not reduce future risk.',
+          'For products recalled for toxic material exposure — lead paint, cadmium in jewelry, PFAS in cookware — ongoing exposure is the concern. The harm from these substances is cumulative. Stopping use now ends ongoing exposure even if you cannot undo past exposure. Consult your doctor if you or your child had significant long-term contact with a recalled product containing lead or other heavy metals.',
+        ],
+      },
+      {
+        heading: 'When to seek medical care',
+        body: [
+          'Seek care promptly if: you ate food recalled for E. coli and develop bloody diarrhea; you ate food recalled for Listeria and are pregnant or immunocompromised; you took a recalled injectable medication and develop fever, chills, or injection site pain; you or your child was injured by a recalled consumer product; or you experience any serious symptom that may be connected to a recalled product.',
+          'Seek care on a non-emergency basis (call your doctor or pharmacist) if: you ate food recalled for Listeria and are otherwise healthy; you took a recalled oral medication for an extended period; you experienced a reaction to a food with undeclared allergens; or you want guidance specific to your health situation.',
+          'Monitor and no immediate action needed for: healthy adults who ate food recalled for Salmonella and have no current symptoms; people who ate food from the general time period of a recall but cannot confirm a lot number match; and people driving recalled vehicles without park-it warnings who have experienced no symptoms related to the defect.',
+          'When in doubt, a call to your pharmacist, doctor, or a nurse advice line is free or low-cost and can give you specific guidance based on your situation. There is no general rule that applies to everyone for every recall.',
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'Recall FAQ', href: '/faq' },
+      { label: 'Consumer safety guide', href: '/safety-guide' },
+      { label: 'How to read a recall notice', href: '/articles/how-to-read-a-recall-notice' },
+      { label: 'What is Listeria and why does it cause so many recalls?', href: '/articles/what-is-listeria-food-recalls' },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

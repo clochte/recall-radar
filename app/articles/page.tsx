@@ -24,18 +24,47 @@ const CATEGORY_COLORS: Record<string, string> = {
   'Consumer Safety': 'bg-gray-100 text-gray-700',
 };
 
+const CATEGORY_COUNTS = (articles: typeof ARTICLES) => {
+  const counts: Record<string, number> = {};
+  for (const a of articles) {
+    counts[a.category] = (counts[a.category] ?? 0) + 1;
+  }
+  return counts;
+};
+
 export default function ArticlesPage() {
   const sorted = [...ARTICLES].sort((a, b) =>
     a.publishedDate < b.publishedDate ? 1 : -1
   );
+  const counts = CATEGORY_COUNTS(ARTICLES);
+  const totalMinutes = ARTICLES.reduce((s, a) => s + a.readingMinutes, 0);
 
   return (
     <div className="max-w-3xl mx-auto py-8">
-      <h1 className="text-2xl font-bold text-navy mb-2">Safety Articles</h1>
-      <p className="text-gray-600 text-sm mb-8 leading-relaxed">
-        In-depth guides on how product recalls work, how to protect your family, and
-        what to do when a recall affects something you own.
-      </p>
+      <h1 className="text-2xl font-bold text-navy mb-3">Safety Articles</h1>
+
+      <div className="bg-card border border-border rounded-lg p-5 mb-8 text-sm text-gray-700 leading-relaxed space-y-3">
+        <p>
+          These articles explain how the U.S. recall system works — not just that a product was recalled,
+          but why recalls happen, how agencies investigate defects, what your rights are, and what to
+          actually do when a recall affects something you own. They are written to be factual and specific,
+          without repeating the generic advice that doesn't help when you're trying to figure out whether
+          you need to see a doctor or whether your car is safe to drive.
+        </p>
+        <p>
+          Topics span food safety, vehicle recalls, medication recalls, and consumer product hazards.
+          {Object.keys(counts).length > 0 && (
+            <span className="text-muted"> Currently {ARTICLES.length} articles — {totalMinutes} minutes of reading across {Object.keys(counts).length} topic areas.</span>
+          )}
+        </p>
+        <div className="flex flex-wrap gap-2 pt-1">
+          {Object.entries(counts).sort((a, b) => b[1] - a[1]).map(([cat, count]) => (
+            <span key={cat} className={`text-xs px-2 py-0.5 rounded-full font-medium ${CATEGORY_COLORS[cat] ?? 'bg-gray-100 text-gray-700'}`}>
+              {cat} ({count})
+            </span>
+          ))}
+        </div>
+      </div>
 
       <div className="space-y-5">
         {sorted.map((article) => (

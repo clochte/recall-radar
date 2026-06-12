@@ -122,6 +122,90 @@ const TERMS: Term[] = [
     definition:
       'A recall initiated by a company without being ordered to do so by a regulatory agency. Despite the name, voluntary recalls carry the same obligations for consumer remedy as mandatory recalls. Companies typically initiate voluntary recalls after discovering a defect internally, receiving consumer complaints, or being contacted by a regulator about a potential issue.',
   },
+  {
+    term: 'Best-By Date / Use-By Date / Sell-By Date',
+    agency: 'FDA · USDA',
+    definition:
+      'Date labels on food packaging that are often confused with each other. A best-by date indicates when a product is at peak quality — not a safety deadline. A use-by date (more common on perishables) is the manufacturer\'s estimate of when the product is no longer at peak condition. A sell-by date is for retailers, not consumers. None of these are federally standardized safety cutoffs. In recall notices, best-by dates are used alongside lot numbers to identify affected product — a product with a best-by date outside the recalled range is not part of the recall.',
+  },
+  {
+    term: 'Date Code / Production Code',
+    agency: 'FDA · USDA',
+    definition:
+      'A code stamped or printed on packaging that indicates when the product was manufactured. Formats vary widely by company — common formats include MMDDYY, YYMMDD, and Julian day numbers. Recall notices use date codes alongside lot numbers to narrow down affected inventory. If a recall notice lists a date code range, check the code on your product\'s packaging (often on the bottom of a can, the side crimp of a bag, or near the best-by date).',
+  },
+  {
+    term: 'Food Safety Modernization Act (FSMA)',
+    agency: 'FDA',
+    definition:
+      'A landmark 2011 federal law that significantly expanded FDA authority over food safety. Before FSMA, the FDA could only request voluntary food recalls for most products. FSMA gave the FDA mandatory recall authority, required food facilities to implement preventive controls, and increased oversight of imported food. FSMA is why you may see an FDA food recall that the company did not initiate — the agency can now order a recall if a company refuses to act voluntarily.',
+  },
+  {
+    term: 'Good Manufacturing Practice (GMP)',
+    agency: 'FDA',
+    definition:
+      'A set of FDA regulations — formally called Current Good Manufacturing Practice (cGMP) — that govern how food, drugs, medical devices, and dietary supplements must be produced, tested, and controlled. GMP violations are a common trigger for drug recalls. When FDA inspects a manufacturing facility and finds processes that don\'t meet GMP standards, it may request a recall even before a specific defective product is identified, because the conditions create unacceptable contamination risk.',
+  },
+  {
+    term: 'Julian Date',
+    agency: 'FDA · USDA',
+    definition:
+      'A date format that represents the day of the year as a number from 001 to 365 (or 366 in a leap year). Julian date 047 means the 47th day of the year, or February 16. Julian dates appear on some commercial and pharmaceutical packaging, particularly on products manufactured for industrial or institutional use. If a recall notice references a Julian date, convert it by counting forward from January 1.',
+  },
+  {
+    term: 'MedWatch',
+    agency: 'FDA',
+    definition:
+      'The FDA\'s safety information and adverse event reporting program. Healthcare providers and consumers can use MedWatch to report serious side effects, product quality problems, and unsafe products to the FDA. Reports filed through MedWatch (available at fda.gov/safety/medwatch or by calling 1-800-FDA-1088) may trigger FDA investigations that lead to recalls. MedWatch is also the source for FDA safety alerts and notices.',
+  },
+  {
+    term: 'NDC (National Drug Code)',
+    agency: 'FDA',
+    definition:
+      'A standardized 10-digit identifier unique to each pharmaceutical product, manufacturer, and package configuration in the U.S. The format is XXXXX-XXXX-XX (labeler code, product code, package code). Drug recall notices frequently list affected NDCs to precisely identify which products are recalled — a specific strength, dosage form, and package size, not an entire drug class. Your medication bottle or blister pack typically displays the NDC, making it a precise way to check whether your prescription is affected.',
+  },
+  {
+    term: 'Park-It Warning',
+    agency: 'NHTSA',
+    definition:
+      'An NHTSA advisory, issued alongside some serious vehicle safety recalls, recommending that owners park their vehicle outdoors and away from enclosed structures — garages, houses, fences — until the recall repair is completed. Park-it warnings indicate an elevated risk of vehicle fire, typically involving battery failures. They are rare and reserved for the most severe fire hazards. If your vehicle has an active park-it advisory, do not park it in an enclosed garage. Contact your dealer immediately to discuss available options.',
+  },
+  {
+    term: 'Recall Completion Rate',
+    agency: 'NHTSA · All agencies',
+    definition:
+      'The percentage of recalled products that have received the required remedy — repaired, replaced, or refunded — out of all products covered by the recall. Vehicle recall completion rates are tracked by NHTSA and typically run 70–75%, meaning roughly one in four recalled vehicles is never fixed. Food and consumer product recall completion rates are generally lower and harder to measure because there is no direct owner notification system.',
+  },
+  {
+    term: 'Recall Number',
+    agency: 'FDA · USDA · CPSC',
+    definition:
+      'The unique identifier assigned to each recall by the issuing agency. FDA food recall numbers use formats like Z-XXXX-XXXX (food) or D-XXXX-XX (drugs). USDA FSIS recalls use a RECALL-XXX-XXXX format. CPSC recalls use a YY-XXX format (e.g., 24-123 for a 2024 recall). NHTSA uses NHTSA Campaign Numbers instead. Recall numbers can be used to look up the original notice and current status directly on the agency\'s website.',
+  },
+  {
+    term: 'Recall Termination',
+    agency: 'FDA · USDA',
+    definition:
+      'A formal determination that a recall is complete and no further action is required. The FDA or USDA issues a termination letter when it is satisfied that all reasonably possible efforts have been made to remove affected product from commerce. Recall termination does not mean the recalled product was found to be safe — it means the remediation process is considered complete. NHTSA vehicle recalls do not have a formal termination process and technically remain open until all affected vehicles receive the repair.',
+  },
+  {
+    term: 'Ready-to-Eat (RTE)',
+    agency: 'FDA · USDA',
+    definition:
+      'Food intended to be consumed without further cooking, heating, or preparation that would eliminate pathogens. Examples include deli meats, hot dogs, smoked fish, soft cheeses, bagged salads, cut fruit, and cooked rotisserie chicken. Ready-to-eat foods carry a higher risk from Listeria contamination than raw foods because there is no kill step before consumption. Most Listeria recalls involve RTE products and are classified Class I.',
+  },
+  {
+    term: 'SaferProducts.gov',
+    agency: 'CPSC',
+    definition:
+      'The CPSC\'s public consumer product safety database where consumers and healthcare providers can report unsafe products and injuries. Reports are reviewed by CPSC staff and can lead to investigations and recalls. Unlike SaferProducts.gov, CPSC.gov lists only formally announced recalls — SaferProducts.gov captures incident reports that may predate a recall. It also functions as a product registration portal for some juvenile product categories.',
+  },
+  {
+    term: 'Service Campaign / Technical Service Campaign',
+    agency: 'NHTSA',
+    definition:
+      'An NHTSA action that is distinct from a mandatory safety recall. Service campaigns address defects or non-conformities that do not pose a safety risk — cosmetic issues, software glitches with no safety impact, or voluntary parts replacement programs initiated by a manufacturer. Unlike safety recalls, service campaigns are not legally required and may not be free. If your vehicle is involved in a service campaign rather than a safety recall, read the notice carefully to understand your rights and whether the repair is at your expense.',
+  },
 ];
 
 export default function GlossaryPage() {

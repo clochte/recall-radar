@@ -75,6 +75,50 @@ const faqs = [
     q: 'Is Recall Radar affiliated with the government?',
     a: 'No. Recall Radar is an independent service that aggregates publicly available government data into one place. For official recall information, always refer to the source links on each recall page.',
   },
+  {
+    q: 'I already ate the recalled food — what should I do now?',
+    a: 'First, check whether your specific package is actually included in the recall by comparing the lot number, best-by date, and UPC against the recall notice. If you no longer have the packaging, check your purchase date against the recall\'s distribution window. If you believe you consumed recalled food: for healthy adults, monitor for symptoms and seek care if they appear. Listeria symptoms can appear 1–70 days after exposure (most often 1–4 weeks); Salmonella symptoms appear within 6 hours to 6 days; E. coli symptoms typically appear 3–4 days after exposure. If you are pregnant, over 65, or immunocompromised, contact your healthcare provider proactively — even without symptoms — after a potential Listeria exposure. For allergen recalls, watch for allergic reaction symptoms if you have a known allergy to the undeclared ingredient.',
+  },
+  {
+    q: 'I already took a recalled medication for weeks — is it too late to do anything?',
+    a: 'Contact your doctor or pharmacist and tell them about the recalled medication and how long you were taking it. For most recalls — potency issues, nitrosamine contamination, minor labeling errors — extended past exposure does not change the immediate treatment approach, but your doctor should know. For more serious contamination issues (sterility failures in injectables, superpotent dosing), past exposure warrants a clinical evaluation. Do not stop a prescription medication abruptly; your pharmacist can switch you to an unaffected lot or alternative. Report any adverse effects to FDA MedWatch at fda.gov/safety/medwatch.',
+  },
+  {
+    q: 'I\'ve been driving my recalled car for months — is it too late to get the free repair?',
+    a: 'No. Vehicle recall repairs have no expiration date. You can get the free repair at any point — years or even decades after the recall was issued. Manufacturers are legally obligated to perform the repair at no cost to the current owner for as long as the recall remains open, which is typically indefinitely. Contact any authorized franchised dealer for your vehicle\'s make, bring your VIN, and schedule the repair. The only practical constraint is parts availability for older recalls — you may need to get on a waiting list.',
+  },
+  {
+    q: 'I don\'t have the packaging anymore — can I still get a refund?',
+    a: 'You can try. Without the packaging and lot number, you cannot confirm your specific product was affected, but some manufacturers and retailers will still process a refund based on a dated purchase receipt or store loyalty card purchase history. Contact the manufacturer directly using the recall hotline listed in the official notice — explain that you disposed of the packaging before seeing the recall. Many will work with you, especially for Class I recalls. Your grocery store may also be able to pull your purchase history if you have a loyalty card account.',
+  },
+  {
+    q: 'Is a product safe if it\'s the same brand but a different lot number?',
+    a: 'Almost always yes, for that specific recall. Recalls identify specific production runs using lot numbers, date codes, UPCs, or model numbers. A different lot number means a different batch — made at a different time, possibly in a different facility — and is not part of that recall. The only exception would be a recall explicitly stating that all products from a specific brand are affected, which is very rare. Always verify your specific lot number against the recall notice rather than assuming a brand-wide problem.',
+  },
+  {
+    q: 'Do I need a receipt to return recalled food?',
+    a: 'Usually no. Most major grocery chains accept returns of recalled food without a receipt for Class I recalls. Bring the product with its packaging (or at least the UPC and lot number) to the customer service desk and explain it is a recalled item. If a store refuses, contact the manufacturer using the hotline in the official recall notice — many have direct consumer refund programs. In some cases, contacting the FDA or USDA and noting the retailer\'s non-compliance can prompt action.',
+  },
+  {
+    q: 'My car dealer says recall parts aren\'t available yet — what should I do?',
+    a: 'Ask to be placed on the dealer\'s waiting list for the specific recall part. Get written confirmation of your place in the queue along with the NHTSA campaign number for the recall. Contact the manufacturer\'s customer service line directly — automakers sometimes have expedite programs for high-severity recalls. For recalls with a park-it warning, ask whether the manufacturer will provide a loaner vehicle or rental car reimbursement while you wait. File a complaint with NHTSA at nhtsa.gov if you believe the parts situation is being mismanaged.',
+  },
+  {
+    q: 'My doctor said to keep taking my recalled medication — is that safe?',
+    a: 'Follow your doctor\'s guidance. For many medications, the risk of stopping abruptly — uncontrolled blood pressure, withdrawal effects, loss of seizure control — is greater than the risk posed by the specific recall reason. Your doctor is weighing the severity of the recall\'s risk against your medical needs. Ask your pharmacist to check whether your specific dispensed lot is affected and to arrange a switch to an unaffected lot or alternative medication as soon as possible.',
+  },
+  {
+    q: 'Why does a recall say "no illnesses reported" but still be Class I?',
+    a: 'Class I reflects the probability and potential severity of harm based on the type of contamination or defect — not whether illness has already occurred. The FDA classifies Listeria contamination in ready-to-eat food as Class I even when no cases are confirmed, because Listeria\'s known mortality rate in vulnerable populations makes serious harm a reasonable statistical probability given continued exposure. "No illnesses reported" means no illnesses have been confirmed as linked to this specific product yet. It does not mean the product is safe or the recall is precautionary.',
+  },
+  {
+    q: 'Can a recall be closed or reversed?',
+    a: 'Yes. The FDA and USDA can formally terminate a recall once they are satisfied all affected product has been removed from commerce. This is called recall termination. It means the remediation process is complete — not that the product was found safe. NHTSA vehicle recalls technically remain open until all affected vehicles receive the repair, which can take years or remain permanently open for older vehicles. A terminated or closed recall still happened; the product was still recalled; you should not seek refund or remedy after closure, but the historical record stands.',
+  },
+  {
+    q: 'What does "urgent" vs. "voluntary" mean on Recall Radar specifically?',
+    a: '"Urgent" on Recall Radar means the recall description contains keywords associated with serious hazards — Listeria, Salmonella, fire, brake failure, airbag defects, choking hazards, etc. "Voluntary" means the notice explicitly describes the recall as voluntary or the description suggests lower severity. This is automated text analysis, not an official government designation. "Urgent" on Recall Radar generally corresponds to Class I; "Voluntary" to Class III. When in doubt, read the official notice to see the actual classification.',
+  },
 ];
 
 export default function FAQPage() {
