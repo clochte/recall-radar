@@ -1230,6 +1230,194 @@ export const ARTICLES: Article[] = [
       { label: 'Recall FAQ', href: '/faq' },
     ],
   },
+  {
+    slug: 'used-car-recalls-before-you-buy',
+    title: 'Used Cars and Open Recalls: How to Check Before You Buy (and What to Do After)',
+    metaDescription:
+      'Millions of used cars have open safety recalls that were never repaired. Learn how to check any vehicle before buying, what sellers are and are not required to tell you, and how to get a free fix.',
+    publishedDate: '2026-06-12',
+    readingMinutes: 6,
+    category: 'Vehicle Safety',
+    intro:
+      'An estimated 50 to 70 million vehicles on U.S. roads at any given time have at least one open safety recall that was never repaired. When you buy a used car, you inherit those open recalls along with the vehicle — and the seller may not be required to tell you about them. A VIN check takes under a minute and can tell you exactly what a car is carrying before money changes hands.',
+    sections: [
+      {
+        heading: 'How common open recalls are on used vehicles',
+        body: [
+          'NHTSA data consistently shows that recall completion rates — the percentage of recalled vehicles that actually receive the free repair — hover around 70 to 75 percent for most recalls. That means roughly one in four recalled vehicles never gets fixed. For older recalls, completion rates are lower.',
+          'The Takata airbag inflator recall, the largest vehicle safety recall in U.S. history, affected about 67 million vehicles from 19 manufacturers. Years after the recall was issued, millions of vehicles were still operating with unrepaired inflators — some of which had been linked to deaths and serious injuries. Many of those vehicles changed hands through private sales and used car dealers with buyers unaware of the open recall.',
+          'Completion rates are lower for recalls issued many years before a vehicle is sold, because original owners may have moved, changed vehicles, or simply never responded to the notice. Private sellers have no legal obligation to disclose open recalls in most states. The responsibility to check falls on the buyer.',
+        ],
+      },
+      {
+        heading: 'How to check a VIN before you buy',
+        body: [
+          "The fastest way to check any vehicle for open recalls is NHTSA's free VIN lookup tool at nhtsa.gov/recalls. Enter the 17-character Vehicle Identification Number and the tool will show every open safety recall on that specific vehicle — not just the most recent one, but all campaigns where the repair has not been documented as completed.",
+          'The VIN is printed on the driver\'s side dashboard, visible through the windshield from outside the vehicle. On most cars, it is also on the driver\'s door jamb sticker, the engine block, and inside the driver\'s door. Always use the full 17-character VIN — shorter versions may return incomplete results.',
+          'Run the check before you finalize the purchase, not after. If you are viewing a car at a dealership or private seller, look up the VIN on your phone before signing anything. A recall is not necessarily a dealbreaker — the repair is free — but it is useful negotiating information and worth verifying the status of before driving the car off the lot.',
+          'Carfax and similar vehicle history reports include recall information, but they may not be as current as NHTSA\'s own database and are not a substitute for the official lookup. Use NHTSA directly.',
+        ],
+      },
+      {
+        heading: "What sellers are and aren't required to disclose",
+        body: [
+          "Dealer disclosure requirements for open recalls vary by state, and federal law doesn't require dealers — let alone private sellers — to disclose open recalls in most contexts. Several states have passed laws requiring dealers to inform buyers or prohibit the sale of vehicles with certain serious open recalls, but these rules are inconsistently enforced and don't cover all recall types.",
+          'In 2016, a federal law was passed requiring rental car companies to stop renting vehicles with serious open recalls while parts are on backorder — but this law does not apply to dealers or private sellers. Some dealers voluntarily disclose recalls and complete repairs before sale; others do not.',
+          'The practical implication is that the buyer bears the responsibility for checking. Do not assume a dealer has disclosed all open recalls or that a clean Carfax means no outstanding safety issues. The NHTSA lookup is the authoritative source.',
+        ],
+      },
+      {
+        heading: "Getting a recall repaired after you buy",
+        body: [
+          "If you buy a vehicle and discover an open recall after the purchase — or if a recall is issued on a vehicle you already own — the recall repair is free regardless of when the vehicle was originally recalled, how old it is, or whether you bought it new or used. Federal law requires manufacturers to fix safety defects at no cost to the current owner.",
+          "To get the repair, contact any franchised dealership for your vehicle's make. You do not need to go to the dealer who sold the car. Bring your VIN or have it ready — the service department will use it to confirm you're covered and to order parts if necessary. When you call, ask for the NHTSA campaign number for the specific recall; it appears in the NHTSA lookup results and helps the dealer locate the right parts.",
+          'If parts are on backorder — common for large-scale recalls — ask to be placed on the dealer\'s waiting list. Some manufacturers offer loaner vehicles for severe safety recalls while you wait for parts; ask whether your recall qualifies.',
+        ],
+      },
+      {
+        heading: 'What to do if you already own a vehicle with an old unrepaired recall',
+        body: [
+          "If you find that your current vehicle has an open recall you were unaware of, check the NHTSA lookup for a description of the defect and any park-it warnings. Some recalls recommend limiting use of the vehicle until the repair is completed — particularly for airbag, brake, and steering defects. Others are lower severity and do not affect normal operation in the interim.",
+          'Contact your dealer to schedule the repair. Depending on the recall severity and parts availability, you may be able to get an appointment within days, or you may be placed on a waiting list. Either way, getting into the queue is the right first step.',
+          "Record the NHTSA campaign number and keep the repair documentation once the work is done. This documentation proves the recall was completed, which can be valuable if you later sell the vehicle — you can show a prospective buyer that known recalls have been addressed.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'VIN recall lookup tool', href: '/vin-lookup' },
+      { label: 'How vehicle recall repairs work', href: '/articles/vehicle-recall-repairs-how-they-work' },
+      { label: 'How to check your VIN for recalls', href: '/articles/how-to-check-vin-for-recalls' },
+      { label: 'Browse vehicle recalls', href: '/vehicles' },
+    ],
+  },
+  {
+    slug: 'what-happens-to-recalled-products',
+    title: 'What Actually Happens to Recalled Products After You Return Them',
+    metaDescription:
+      "Most people return a recalled product and never think about it again. Here's what actually happens next — where recalled food, cars, drugs, and consumer products end up after consumers hand them back.",
+    publishedDate: '2026-06-12',
+    readingMinutes: 5,
+    category: 'Consumer Safety',
+    intro:
+      "Millions of recalled products are returned, disposed of, or taken in for repair every year. What happens to them after that is less visible than the recall notice itself — but it varies significantly depending on the product type, the hazard, and the manufacturer's obligations. Recalled food does not always get thrown away. Recalled cars are sometimes still on the road. Recalled drugs follow a specific destruction protocol. The full picture is worth understanding.",
+    sections: [
+      {
+        heading: 'Recalled food: destruction, disposal, and why it sometimes continues',
+        body: [
+          "When food is recalled, the ideal outcome is that the affected product is destroyed — typically incinerated, composted, or disposed of in a manner that prevents it from re-entering the food supply. The FDA or USDA confirms destruction through inspections and documentation submitted by the firm. Larger recalls involving warehoused inventory that hasn't yet reached consumers are generally handled this way.",
+          "For product already in homes, the reality is messier. Consumers who return recalled food to grocery stores are generally refunded, and the store disposes of the returned items rather than returning them to the manufacturer. But a significant portion of recalled food — estimates range widely, but completion rates for food recalls are low compared to vehicle recalls — is simply never returned. Consumers don't see the recall notice, throw away the packaging before checking lot numbers, or eat the product before the recall is announced.",
+          "In some cases, recalled food is redirected to animal feed or industrial use if the recall reason is a labeling issue rather than a contamination concern — regulators may allow this under supervised conditions. For contaminated food, destruction is required. The brand does not get to resell the product in any form.",
+        ],
+      },
+      {
+        heading: 'Recalled vehicles: free repairs, not destruction',
+        body: [
+          "Unlike recalled food or drugs, recalled vehicles are almost never destroyed. The recall process for vehicles is a repair program, not a removal from service. Manufacturers fix the defective component — replacing an airbag inflator, updating software, correcting a brake valve — and the vehicle continues operating normally after the repair.",
+          "This is possible because most vehicle recalls involve a specific component or system, not the vehicle as a whole. A car recalled for a faulty Takata airbag inflator is otherwise fine to drive; only the inflator needs replacement. After the repair is documented, the recall is considered complete for that vehicle.",
+          "Vehicles that are never repaired remain in service with the defect. There is no mechanism for the government to pull unrepaired vehicles off the road — owners must bring them in voluntarily. This is why recall completion rates matter and why checking a used vehicle's VIN before buying is important.",
+        ],
+      },
+      {
+        heading: 'Recalled medications: reverse distribution and destruction',
+        body: [
+          "Recalled medications follow a regulated reverse distribution process. Drugs returned to pharmacies or manufacturers are typically collected by licensed reverse distributors — companies that specialize in the collection, handling, and disposal of pharmaceutical products. Controlled substances follow DEA regulations that govern every step of the chain of custody.",
+          "Most recalled medications are ultimately incinerated in permitted facilities. Some, depending on the nature of the recall, may be reworked if the issue is a labeling error rather than a contamination or potency problem — the product can be relabeled correctly and released. This is rare and requires regulatory approval.",
+          "The FDA does not want recalled medications entering landfills or water supplies through flushing, which is why recall notices typically specify approved disposal methods. The FDA's drug take-back program provides authorized collection sites as an alternative to home disposal for consumers who cannot return medications to a pharmacy.",
+        ],
+      },
+      {
+        heading: 'Recalled consumer products: depends on the remedy',
+        body: [
+          "Consumer products follow different paths depending on the remedy specified in the CPSC recall. For products where the remedy is a refund, consumers return the item (or photos of the destroyed item) and receive a check or gift card from the manufacturer. The returned products are typically destroyed — a CPSC-supervised process ensures recalled items don't re-enter retail channels.",
+          "For products where the remedy is a free repair — a new part, a software update, a hardware modification — the product continues in service after the fix. The repaired version is presumed safe by the manufacturer and verified by CPSC before the remedy is approved.",
+          "Retailers who pull recalled products from store shelves typically consolidate them and return them to the manufacturer or distributor for credit. The manufacturer is responsible for proper disposal or rework under their agreement with the CPSC.",
+          "Donated items create a persistent problem. Products donated to thrift stores and charity shops are not systematically checked against recall databases before resale. The CPSC has published guidance for retailers and thrift stores, but enforcement is limited. Recalled children's products — cribs, car seats, sleep products — regularly appear at secondhand sales despite being banned from resale.",
+        ],
+      },
+      {
+        heading: 'The ongoing resale problem',
+        body: [
+          "Despite laws in many states prohibiting the resale of recalled products, recalled items regularly appear on online marketplaces, at garage sales, and in thrift stores. This is particularly concerning for children's products, where the hazards (choking, strangulation, structural failure) are most severe and where the buyers are least equipped to recognize the risk.",
+          "The CPSC has pursued legal action against sellers and online platforms for facilitating the resale of recalled products. In 2021, the commission sued Amazon, arguing that the platform's business model made it a distributor subject to recall obligations for third-party sellers — a case that highlighted how traditional recall infrastructure struggles to keep pace with online resale.",
+          "If you are buying secondhand products, particularly for children, run the model number through the CPSC recall search at cpsc.gov/recalls before purchasing. Recall Radar's product search can also help identify recalled items by brand or product name.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'Consumer safety guide', href: '/safety-guide' },
+      { label: 'How to return recalled food for a refund', href: '/articles/returning-recalled-food-for-refund' },
+      { label: "Children's product recalls", href: '/products/children' },
+      { label: 'How CPSC recalls work', href: '/articles/how-cpsc-recalls-work' },
+    ],
+  },
+  {
+    slug: 'why-recalls-take-so-long',
+    title: 'Why Some Recalls Take Months or Years to Reach You',
+    metaDescription:
+      "A recall announcement doesn't mean your product has been pulled from shelves. Learn why recalls take so long to reach consumers — from investigation to notice to store removal to repair.",
+    publishedDate: '2026-06-12',
+    readingMinutes: 6,
+    category: 'Consumer Safety',
+    intro:
+      'From the moment a defect is identified to the moment a consumer receives a notice or sees a product pulled from shelves, a lot can happen — and a lot of time can pass. Recalls that seem like they should be instant often take weeks, months, or even years to fully materialize. Understanding the pipeline helps you interpret the gap between when a problem is first reported and when you hear about it.',
+    sections: [
+      {
+        heading: 'The investigation phase: from complaint to confirmed defect',
+        body: [
+          'Most recalls do not begin with a company finding a problem in its own testing. They begin with consumer complaints — reports of illness, injury, or product failure filed with the FDA, NHTSA, CPSC, or USDA. Government agencies monitor these complaint databases for patterns: multiple reports of the same symptom from the same product, or injury reports clustering around a specific model year.',
+          'When a pattern emerges, an investigation is opened. The agency may request samples from the manufacturer, conduct its own testing, inspect the manufacturing facility, or convene a technical panel. This process takes time — weeks for straightforward cases, months or years for complex ones. The Takata airbag recall, for example, involved NHTSA investigations spanning more than a decade before the full scope of the defect was understood.',
+          'During this investigation phase, the product may still be on shelves and in homes. Agencies balance the risk of premature action — pulling products that turn out to be safe — against the risk of delayed action that leaves consumers exposed. For food contamination linked to a confirmed outbreak, the timeline compresses significantly. For longer-term risks like carcinogenic contaminants in medications, investigations can take years.',
+        ],
+      },
+      {
+        heading: 'Negotiating the recall scope',
+        body: [
+          'Once an agency determines a recall is warranted, it typically contacts the manufacturer and requests a voluntary recall. The manufacturer then identifies the scope: which lots, which date ranges, which model numbers are affected. This is not always simple.',
+          "For a food recall, the firm must trace the contaminated product back through its supply chain — which batches used a specific ingredient, which production line was affected, which distribution channels received which lots. This investigation can take days to weeks, especially for large manufacturers with complex operations. Getting the scope wrong in either direction is costly: too narrow a scope misses affected product; too broad a scope recalls safe product unnecessarily.",
+          'For vehicle recalls, manufacturers review production records, supplier data, and field reports to identify the affected population of vehicles. A recall affecting 500,000 vehicles requires identifying each vehicle by VIN before owner notification letters can be sent.',
+        ],
+      },
+      {
+        heading: 'Publication and the notification lag',
+        body: [
+          'Once a recall scope is finalized and the FDA, USDA, NHTSA, or CPSC approves the notice, it is published in the relevant database — typically within 24 to 48 hours of the agency being notified. This is where Recall Radar and other aggregators pick it up.',
+          'But publication of a recall notice is not the same as consumers being notified. Vehicle recall notices require manufacturers to mail letters to all registered owners within 60 days of the recall being issued. Those letters go to the address on file with the DMV — not necessarily the current owner\'s address. For used vehicles, the DMV records may be outdated or the vehicle may have changed hands.',
+          'For food and consumer product recalls, there is no mandatory direct notification to consumers who purchased the product, because retailers don\'t systematically track who bought what. The notification relies on media coverage, retailer in-store announcements, email lists from product registrations, and databases like Recall Radar.',
+          'Retailers may take days to pull recalled products from shelves — the store must receive the recall notice, identify affected inventory, and physically remove it from display. For large grocery chains with many locations, this process takes time. A product can remain available for purchase for 48 to 72 hours after a recall is announced.',
+        ],
+      },
+      {
+        heading: 'The parts backorder problem for vehicle recalls',
+        body: [
+          'Vehicle recalls face an additional bottleneck unique to their category: parts. When a recall is announced, it triggers immediate demand for replacement parts from millions of vehicle owners simultaneously. Parts manufacturers often cannot ramp production fast enough to meet this demand, causing backorders that can stretch from weeks to years.',
+          "The Takata airbag recall is the most extreme example — the global shortage of replacement inflators meant some vehicle owners waited five years or more for a repair appointment. The recall was issued; owners knew about it; dealers wanted to fix the cars — but there were no parts available. During that time, owners drove vehicles with defective inflators that had killed people.",
+          'For most vehicle recalls, the backorder period is shorter — weeks to a few months. But for recalls affecting millions of vehicles with a complex parts supply, delays are the rule rather than the exception. When you schedule a recall repair and are told parts are not yet available, ask to be placed on the waiting list so you are notified when they arrive.',
+        ],
+      },
+      {
+        heading: 'Why not all recalled products disappear from stores immediately',
+        body: [
+          'A common misconception is that recalled products vanish from store shelves the moment a recall is announced. In practice, the speed varies considerably. Products stored in a central warehouse that have not yet reached retail are faster to intercept — the distributor can simply stop shipment. Products already at retail locations require each store to physically identify and remove affected inventory, which takes coordination and time.',
+          'For small recalls affecting limited distribution, store removal can happen quickly. For major recalls affecting national chains, the timeline can be 24 to 72 hours. Consumers should not assume a product is safe simply because it is still on a shelf — check the lot numbers yourself.',
+          'Online marketplaces are slower still. Third-party sellers may not receive recall notices or may not act on them promptly. E-commerce platforms have varying policies about delisting recalled products.',
+        ],
+      },
+      {
+        heading: 'What you can do in the meantime',
+        body: [
+          'If you are concerned about a product and a recall has not yet been announced, file a complaint with the relevant agency: the FDA for food or drugs, NHTSA for vehicles, the CPSC for consumer products. Aggregated complaints are what trigger investigations in the first place.',
+          'Subscribe to recall alerts from the agencies directly and from services like Recall Radar to receive notice as soon as a recall is published — before mail notifications arrive, and often before media coverage picks up the story.',
+          "For vehicle concerns specifically, NHTSA's VIN lookup at nhtsa.gov/recalls is updated in real time. If you suspect your car has a defect, check it regularly — recalls are added to vehicles' records as they are issued.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'How to report an unsafe product', href: '/articles/how-to-report-unsafe-product' },
+      { label: 'Subscribe to recall alerts', href: '/subscribe' },
+      { label: 'VIN lookup for vehicle recalls', href: '/vin-lookup' },
+      { label: 'Why people never hear about recalls', href: '/articles/why-people-never-hear-about-recalls' },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

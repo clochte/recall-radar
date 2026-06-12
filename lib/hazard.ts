@@ -366,7 +366,7 @@ export function getRelatedArticles(recall: {
   if (text.includes('ndma') || text.includes('nitrosamine')) add('drug-contamination-ndma-nitrosamines');
   if (text.includes('class i') || text.includes('class ii') || text.includes('class iii')) add('recall-classes-explained');
 
-  if (recall.category === 'vehicles') { add('vehicle-recall-repairs-how-they-work'); add('how-to-check-vin-for-recalls'); }
+  if (recall.category === 'vehicles') { add('vehicle-recall-repairs-how-they-work'); add('how-to-check-vin-for-recalls'); add('used-car-recalls-before-you-buy'); }
   if (recall.category === 'medications') add('medication-recall-lot-numbers');
   if (recall.category === 'food') add('returning-recalled-food-for-refund');
   if (recall.category === 'products') add('how-cpsc-recalls-work');

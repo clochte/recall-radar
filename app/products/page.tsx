@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { getProductRecalls } from '@/lib/feeds/cpsc';
 import RecallGrid from '@/components/RecallGrid';
 import AdPlaceholder from '@/components/AdPlaceholder';
@@ -21,6 +22,14 @@ export default async function ProductsPage() {
           <p className="text-gray-600 mt-1 text-sm">
             {recalls.length} recall{recalls.length !== 1 ? 's' : ''} — updated every few hours from the U.S. Consumer Product Safety Commission.
           </p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            <Link href="/products/children" className="px-3 py-1 text-xs font-medium bg-card border border-border rounded-full text-navy hover:bg-navy hover:text-white transition-colors">
+              Children&apos;s Products
+            </Link>
+            <Link href="/products/fire-hazards" className="px-3 py-1 text-xs font-medium bg-card border border-border rounded-full text-navy hover:bg-navy hover:text-white transition-colors">
+              Fire &amp; Electrical Hazards
+            </Link>
+          </div>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 mb-8 space-y-4 text-sm text-gray-700 leading-relaxed">
