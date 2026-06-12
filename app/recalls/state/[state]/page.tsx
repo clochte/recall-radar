@@ -19,10 +19,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { state: stateSlug } = await params;
   const state = US_STATES.find((s) => s.slug === stateSlug);
   if (!state) return {};
+
+  const recalls = await getRecallsByState(stateSlug);
+
+  if (!recalls.length) {
+    return {
+      title: `${state.name} Safety Recalls`,
+      description: `No active recalls currently mention ${state.name} by name. Browse all national recalls from FDA, NHTSA, USDA, and CPSC.`,
+      robots: { index: false },
+    };
+  }
+
+  const urgentCount = recalls.filter((r) => r.severity === 'urgent').length;
+  const urgentClause = urgentCount > 0 ? ` Includes ${urgentCount} urgent notice${urgentCount !== 1 ? 's' : ''}.` : '';
+
   return {
     title: `${state.name} Safety Recalls`,
-    description: `Safety recalls mentioning ${state.name} — food, vehicles, medications, and consumer products from FDA, NHTSA, USDA, and CPSC. Updated every few hours.`,
+    description: `${recalls.length} safety recall${recalls.length !== 1 ? 's' : ''} currently mention ${state.name} — food, vehicles, medications, and consumer products from FDA, NHTSA, USDA, and CPSC.${urgentClause}`,
   };
+}
+
+function buildStateContext(
+  stateName: string,
+  byCat: { cat: RecallCategory; count: number }[],
+  total: number,
+  urgentCount: number,
+): string {
+  let catBreakdown = '';
+  if (byCat.length === 1) {
+    catBreakdown = ` All ${total} are ${CATEGORY_LABELS[byCat[0].cat].toLowerCase()} recall${total !== 1 ? 's' : ''}.`;
+  } else if (byCat.length === 2) {
+    catBreakdown = ` ${CATEGORY_LABELS[byCat[0].cat]}: ${byCat[0].count}. ${CATEGORY_LABELS[byCat[1].cat]}: ${byCat[1].count}.`;
+  } else if (byCat.length >= 3) {
+    catBreakdown = ` By category: ${byCat.map((x) => `${CATEGORY_LABELS[x.cat].toLowerCase()} (${x.count})`).join(', ')}.`;
+  }
+
+  const urgentNote = urgentCount > 0
+    ? ` ${urgentCount} of these recall${urgentCount !== 1 ? 's are' : ' is'} classified as urgent — meaning a reasonable probability of serious harm has been identified. Check those first.`
+    : '';
+
+  return `These recalls mention ${stateName} in their official notice — typically because the affected product was distributed there, manufactured at a ${stateName} facility, or sold through retailers with locations in the state.${catBreakdown}${urgentNote} This is not a complete list of all recalls relevant to ${stateName} residents; national recalls issued without state-specific distribution data will not appear here.`;
 }
 
 export default async function StatePage({ params }: Props) {
@@ -35,9 +71,14 @@ export default async function StatePage({ params }: Props) {
   const categories: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
   const byCat = categories
     .map((cat) => ({ cat, count: recalls.filter((r) => r.category === cat).length }))
-    .filter((x) => x.count > 0);
+    .filter((x) => x.count > 0)
+    .sort((a, b) => b.count - a.count);
 
   const urgentCount = recalls.filter((r) => r.severity === 'urgent').length;
+
+  const contextBody = recalls.length > 0
+    ? buildStateContext(state.name, byCat, recalls.length, urgentCount)
+    : null;
 
   return (
     <div className="flex gap-6 items-start">
@@ -52,13 +93,15 @@ export default async function StatePage({ params }: Props) {
           </nav>
           <h1 className="text-2xl font-bold text-navy">{state.name} Safety Recalls</h1>
           <p className="text-gray-600 mt-1 text-sm">
-            {recalls.length} recall{recalls.length !== 1 ? 's' : ''} currently mention {state.name} — updated every few hours.
+            {recalls.length
+              ? `${recalls.length} recall${recalls.length !== 1 ? 's' : ''} currently mention ${state.name} — updated every few hours.`
+              : `No active recalls currently mention ${state.name} by name.`}
           </p>
         </div>
 
         {recalls.length > 0 && (
           <>
-            {/* Category strip */}
+            {/* Category breakdown strip */}
             <div className="flex flex-wrap gap-3 mb-6">
               {byCat.map(({ cat, count }) => (
                 <span
@@ -76,19 +119,7 @@ export default async function StatePage({ params }: Props) {
             </div>
 
             <div className="bg-card border border-border rounded-lg p-4 mb-6 text-sm text-gray-600 leading-relaxed">
-              <p>
-                These recalls mention <strong>{state.name}</strong> in their official notice — typically
-                because the affected product was distributed there, manufactured at a facility in the
-                state, or sold through retailers with locations in {state.name}. This list may not include
-                every recall relevant to {state.name} residents; browse the full category pages for a
-                complete picture of active recalls.
-              </p>
-              {urgentCount > 0 && (
-                <p className="mt-2 text-red-700 font-medium">
-                  {urgentCount} of these recall{urgentCount !== 1 ? 's are' : ' is'} classified as urgent
-                  — meaning there is a reasonable probability of serious harm. Review those notices first.
-                </p>
-              )}
+              <p>{contextBody}</p>
             </div>
           </>
         )}
@@ -97,14 +128,18 @@ export default async function StatePage({ params }: Props) {
           <RecallGrid recalls={recalls} />
         ) : (
           <div className="py-12 text-center text-muted">
-            <p>No active recalls currently mention {state.name}.</p>
-            <p className="text-sm mt-2">
-              This does not mean there are no recalls relevant to {state.name} residents —
-              many recalls are national in scope and do not reference individual states.{' '}
-              <Link href="/" className="text-navy-light hover:underline">
-                Browse all active recalls →
-              </Link>
+            <p className="font-medium">No active recalls currently mention {state.name}.</p>
+            <p className="text-sm mt-2 max-w-sm mx-auto leading-relaxed">
+              Many recalls are distributed nationally without referencing individual states in the notice.
+              Browse the full category pages to see all active recalls regardless of state.
             </p>
+            <div className="flex flex-wrap justify-center gap-3 mt-4 text-sm">
+              {(['food', 'vehicles', 'medications', 'products'] as RecallCategory[]).map((cat) => (
+                <Link key={cat} href={`/${cat}`} className="text-navy-light hover:underline">
+                  {CATEGORY_LABELS[cat]} recalls →
+                </Link>
+              ))}
+            </div>
           </div>
         )}
       </div>
