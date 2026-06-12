@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { getFoodRecalls } from '@/lib/feeds/fda-food';
 import { getUsdaFoodRecalls } from '@/lib/feeds/usda';
 import RecallGrid from '@/components/RecallGrid';
@@ -25,6 +26,14 @@ export default async function FoodPage() {
           <p className="text-gray-600 mt-1 text-sm">
             {recalls.length} recall{recalls.length !== 1 ? 's' : ''} — updated every few hours from official government sources.
           </p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            <Link href="/food/meat" className="px-3 py-1 text-xs font-medium bg-card border border-border rounded-full text-navy hover:bg-navy hover:text-white transition-colors">
+              Meat &amp; Poultry (USDA)
+            </Link>
+            <Link href="/food/allergens" className="px-3 py-1 text-xs font-medium bg-card border border-border rounded-full text-navy hover:bg-navy hover:text-white transition-colors">
+              Undeclared Allergens
+            </Link>
+          </div>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 mb-8 space-y-4 text-sm text-gray-700 leading-relaxed">

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getAllRecalls } from '@/lib/recalls';
 import { CATEGORY_LABELS } from '@/lib/types';
-import type { RecallCategory } from '@/lib/types';
+import type { RecallCategory, Recall } from '@/lib/types';
 import RecallCard from '@/components/RecallCard';
 import AdPlaceholder from '@/components/AdPlaceholder';
 
@@ -9,6 +9,52 @@ export const metadata: Metadata = {
   title: 'New This Week — Latest Safety Recalls',
   description: 'The most recent safety recalls across food, vehicles, medications, and consumer products from FDA, NHTSA, USDA, and CPSC. Updated every few hours.',
 };
+
+function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; count: number }[], urgentCount: number): string {
+  const now = Date.now();
+  const sevenDays = 7 * 24 * 60 * 60 * 1000;
+  const thisWeekCount = recent.filter((r) => now - new Date(r.date).getTime() < sevenDays).length;
+
+  const top = [...byCat].sort((a, b) => b.count - a.count)[0];
+  const dominated = top && top.count > recent.length * 0.4;
+
+  const text = recent.map((r) => `${r.title} ${r.reason}`).join(' ').toLowerCase();
+  const hazards: string[] = [];
+  if (text.includes('listeria')) hazards.push('Listeria contamination');
+  if (text.includes('salmonella')) hazards.push('Salmonella contamination');
+  if (text.includes('e. coli') || text.includes('e coli')) hazards.push('E. coli contamination');
+  if (['undeclared', 'allergen', 'peanut', 'tree nut', 'wheat', 'shellfish'].some((k) => text.includes(k))) hazards.push('undeclared allergens');
+  if (text.includes('fire') || text.includes('overheat')) hazards.push('fire or overheating hazards');
+  if (text.includes('airbag') || text.includes('inflator')) hazards.push('airbag defects');
+
+  let weekNote = '';
+  if (thisWeekCount > 0) {
+    weekNote = `${thisWeekCount} of these recall${thisWeekCount !== 1 ? 's were' : ' was'} issued in the last seven days. `;
+  }
+
+  let catNote = '';
+  if (dominated) {
+    catNote = `${CATEGORY_LABELS[top.cat]} is the dominant category this period, accounting for ${top.count} of the ${recent.length} most recent notices. `;
+  } else if (byCat.filter((x) => x.count > 0).length >= 3) {
+    catNote = 'Recalls are spread across multiple categories this period. ';
+  }
+
+  let hazardNote = '';
+  if (hazards.length === 1) {
+    hazardNote = `${hazards[0]} appears in multiple current notices. `;
+  } else if (hazards.length >= 2) {
+    hazardNote = `${hazards[0]} and ${hazards[1]} appear in multiple current notices. `;
+  }
+
+  let urgentNote = '';
+  if (urgentCount > 0) {
+    urgentNote = `${urgentCount} recall${urgentCount !== 1 ? 's are' : ' is'} classified as urgent — meaning the issuing agency has determined a reasonable probability of serious harm or death. Review those before the rest.`;
+  } else {
+    urgentNote = 'None of the current recalls are classified as urgent, though notices should still be checked against your specific products.';
+  }
+
+  return `${weekNote}${catNote}${hazardNote}${urgentNote}`;
+}
 
 export default async function WeeklyPage() {
   const recalls = await getAllRecalls();
@@ -20,12 +66,13 @@ export default async function WeeklyPage() {
     : '';
 
   const categories: RecallCategory[] = ['food', 'vehicles', 'medications', 'products'];
-  const byCat = categories.map((cat) => ({
-    cat,
-    count: recent.filter((r) => r.category === cat).length,
-  }));
+  const byCat = categories
+    .map((cat) => ({ cat, count: recent.filter((r) => r.category === cat).length }))
+    .filter((x) => x.count > 0)
+    .sort((a, b) => b.count - a.count);
+
   const urgentCount = recent.filter((r) => r.severity === 'urgent').length;
-  const topCat = [...byCat].sort((a, b) => b.count - a.count)[0];
+  const editorial = buildEditorialSummary(recent, byCat, urgentCount);
 
   return (
     <div>
@@ -37,11 +84,13 @@ export default async function WeeklyPage() {
         </p>
       </div>
 
-      {/* Summary bar */}
-      <div className="bg-card border border-border rounded-lg p-4 mb-8">
-        <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-3">In these {recent.length} recalls</p>
-        <div className="flex flex-wrap gap-4">
-          {byCat.filter((x) => x.count > 0).map(({ cat, count }) => (
+      {/* Editorial summary — generated from live data, unique each load */}
+      <div className="bg-card border border-border rounded-lg p-5 mb-6">
+        <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">Current period summary</p>
+        <p className="text-sm text-gray-700 leading-relaxed">{editorial}</p>
+
+        <div className="flex flex-wrap gap-4 mt-4 pt-4 border-t border-border">
+          {byCat.map(({ cat, count }) => (
             <div key={cat} className="text-sm">
               <span className="font-semibold text-navy">{count}</span>
               <span className="text-gray-600 ml-1">{CATEGORY_LABELS[cat]}</span>
@@ -49,20 +98,11 @@ export default async function WeeklyPage() {
           ))}
           {urgentCount > 0 && (
             <div className="text-sm">
-              <span className="font-semibold text-red-600">{urgentCount}</span>
+              <span className="font-semibold text-urgent">{urgentCount}</span>
               <span className="text-gray-600 ml-1">urgent</span>
             </div>
           )}
         </div>
-        {topCat && topCat.count > 0 && (
-          <p className="text-xs text-muted mt-3 leading-relaxed">
-            <strong>{CATEGORY_LABELS[topCat.cat]}</strong> is the most active category this period
-            with {topCat.count} recall{topCat.count !== 1 ? 's' : ''}.
-            {urgentCount > 0
-              ? ` ${urgentCount} recall${urgentCount !== 1 ? 's are' : ' is'} classified as urgent — review those first.`
-              : ' No urgent (Class I) recalls in the current set.'}
-          </p>
-        )}
       </div>
 
       {recent.length > 0 ? (

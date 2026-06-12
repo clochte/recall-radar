@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { getMedicationRecalls } from '@/lib/feeds/fda-drug';
 import RecallGrid from '@/components/RecallGrid';
 import AdPlaceholder from '@/components/AdPlaceholder';
@@ -21,6 +22,11 @@ export default async function MedicationsPage() {
           <p className="text-gray-600 mt-1 text-sm">
             {recalls.length} recall{recalls.length !== 1 ? 's' : ''} — updated every few hours from the FDA&apos;s drug enforcement database.
           </p>
+          <div className="flex flex-wrap gap-2 mt-3">
+            <Link href="/medications/class-i" className="px-3 py-1 text-xs font-medium bg-card border border-border rounded-full text-navy hover:bg-navy hover:text-white transition-colors">
+              Class I (Urgent) Only
+            </Link>
+          </div>
         </div>
 
         <div className="bg-card border border-border rounded-lg p-5 mb-8 space-y-4 text-sm text-gray-700 leading-relaxed">

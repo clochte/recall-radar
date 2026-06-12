@@ -66,12 +66,37 @@ async function StatsContent() {
 
   const mostRecalled = Object.entries(byCategory).sort((a, b) => b[1] - a[1]);
 
+  const topCat = mostRecalled[0];
+  const topCatPct = recalls.length ? Math.round((byCategory[topCat[0] as keyof typeof byCategory] / recalls.length) * 100) : 0;
+  const editorialNote = [
+    `${recalls.length.toLocaleString()} recalls are currently tracked across all categories.`,
+    topCat
+      ? `${categoryLabels[topCat[0]]} is the highest-volume category, accounting for ${topCatPct}% of all notices.`
+      : '',
+    urgentPct > 0
+      ? `${urgentPct}% of tracked recalls are classified as urgent — meaning the issuing agency determined a reasonable probability of serious harm or death.`
+      : '',
+    monthDelta > 0
+      ? `This month is running ${monthDelta} recall${monthDelta !== 1 ? 's' : ''} ahead of last month.`
+      : monthDelta < 0
+      ? `This month is running ${Math.abs(monthDelta)} recall${Math.abs(monthDelta) !== 1 ? 's' : ''} below last month's pace.`
+      : 'This month is on pace with last month.',
+  ].filter(Boolean).join(' ');
+
   return (
     <div className="max-w-4xl mx-auto py-8">
-      <div className="mb-8">
+      <div className="mb-6">
         <h1 className="text-2xl font-bold text-navy mb-2">Recall Statistics</h1>
         <p className="text-gray-600 text-sm">
           Live numbers derived from FDA, NHTSA, USDA, and CPSC data — updated every few hours.
+        </p>
+      </div>
+
+      {/* Editorial context — generated from live data */}
+      <div className="bg-card border border-border rounded-lg p-4 mb-8 text-sm text-gray-700 leading-relaxed">
+        <p>{editorialNote}</p>
+        <p className="mt-2 text-xs text-muted">
+          Food consistently leads by volume because the FDA and USDA publish recall notices more frequently than NHTSA or CPSC. Vehicle and product recalls tend to have higher per-notice severity. Urgency classification is derived from keywords in recall descriptions and may not capture all Class I events, particularly for vehicle and product recalls.
         </p>
       </div>
 

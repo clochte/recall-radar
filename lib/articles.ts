@@ -1142,6 +1142,94 @@ export const ARTICLES: Article[] = [
       { label: 'Recall FAQ', href: '/faq' },
     ],
   },
+  {
+    slug: 'suing-over-recalled-product',
+    title: 'Can You Sue If a Recalled Product Hurt You? What Consumers Need to Know',
+    metaDescription:
+      'A recall notice does not automatically determine your legal rights. Learn when you can pursue a claim after a recalled product causes injury, what evidence matters, and where to start.',
+    publishedDate: '2026-06-12',
+    readingMinutes: 7,
+    category: 'Consumer Safety',
+    intro:
+      'Getting hurt by a product that was later recalled raises an obvious question: does the recall mean the manufacturer already admitted fault? Not exactly — but it does create a paper trail that can be important to any legal claim. Whether you can pursue compensation depends on what type of harm occurred, when it happened, whether the product actually caused the injury, and what jurisdiction you are in. This article explains the basics, not as legal advice, but as a starting point for understanding your options.',
+    sections: [
+      {
+        heading: 'What a recall does and does not admit',
+        body: [
+          'A recall notice is a public safety action — not a formal legal admission of liability. Companies frequently include language in recall announcements stating they are not admitting the product caused harm, even while agreeing to remove it from the market. This matters because proving liability in a personal injury claim requires more than showing a product was recalled.',
+          'That said, a recall is significant evidence. It means the manufacturer, a government agency, or both determined that the product had a defect or failed to meet safety standards. If you were injured by a product in the recalled category and lot, the recall notice is a useful document that can support a claim — it shows the defect was known and identified, even if the manufacturer disputes causation.',
+          'What a recall does not do is create an automatic right to compensation for injury. Product liability law requires proving the product was defective, that the defect caused the specific harm, and that damages resulted. The recall supports the first element; you still have to establish the others.',
+        ],
+      },
+      {
+        heading: 'Types of product liability claims',
+        body: [
+          'Product liability claims generally fall into three categories: manufacturing defect, design defect, and failure to warn. A recall typically signals one of the first two.',
+          'A manufacturing defect means the product design was fine but something went wrong in production — a contaminated batch of food, a brake part machined to the wrong specification, an airbag inflator filled with the wrong compound. The injury happened because your specific unit was defective, even though identical units made correctly would have been safe.',
+          'A design defect means the entire product line is inherently unsafe — the design itself creates an unreasonable risk, regardless of how well it was made. Some product recalls involve design defects, particularly when the defect affects every unit of a model, not just specific production runs.',
+          'Failure to warn claims allege that the manufacturer knew about a risk and did not adequately notify consumers. In the context of recalls, this can apply to situations where the company knew about a hazard for months before issuing the recall and continued selling the product.',
+        ],
+      },
+      {
+        heading: 'What you need to document',
+        body: [
+          'If you were injured by a product that was later recalled — or if you suspect you were harmed before the recall was announced — documentation is the most important step you can take. Start immediately, because some evidence is time-sensitive.',
+          'Keep the product if you have it. Do not discard it, even if the recall instructs you to. The physical product is evidence. If you have already disposed of it, retrieve any packaging you kept, lot numbers, and purchase receipts.',
+          'Photograph everything: the product, any injury, the lot number and UPC on the packaging, and the location where the product was stored. Take photos before any cleanup.',
+          'Seek medical attention right away and tell your provider what product you think caused the injury. Medical records documenting the injury and its cause are foundational evidence in any personal injury claim.',
+          'Keep records of expenses: medical bills, out-of-pocket costs, days of work missed. These establish damages.',
+          'Save the recall notice and document when you learned about the recall relative to when the injury occurred. This timeline can be relevant, particularly for failure-to-warn claims.',
+        ],
+      },
+      {
+        heading: 'Statute of limitations: time limits matter',
+        body: [
+          'Product liability claims have time limits called statutes of limitations — windows after which you cannot file a lawsuit regardless of how strong your case is. These vary by state, but most are between two and four years from the date of injury or from the date you discovered (or reasonably should have discovered) that the product caused your harm.',
+          'The discovery rule is important for cases where the connection between a product and an injury was not immediately obvious. A person who develops a health problem after long-term use of a recalled medication may have the clock start when the illness is diagnosed and linked to the drug, not when the medication was first taken.',
+          'Do not assume you have time. Consult an attorney sooner rather than later — evidence degrades, memories fade, and missing the filing window ends your claim entirely regardless of its merits.',
+        ],
+      },
+      {
+        heading: 'Class action vs. individual lawsuit',
+        body: [
+          'Many product liability cases involving recalls are brought as class actions — lawsuits filed by a group of plaintiffs who all suffered similar harm from the same product. Class actions are more common when individual damages are relatively small (a refund plus minor medical bills), because the cost of individual litigation would exceed any potential recovery. They are also used when the harm is widespread but each person\'s injury is similar in type.',
+          'If your injury is serious — a hospitalization, long-term illness, significant disability, death of a family member — an individual lawsuit may be more appropriate than joining a class action. Class action settlements are often spread across many plaintiffs and may not adequately compensate serious injuries. An attorney can help you evaluate whether an individual claim, a class action, or both is in your interest.',
+          'If a class action has already been filed over the recalled product that hurt you, you will typically receive notice by mail if you are a potential class member. You usually have the option to opt out and pursue an individual claim, though opting out requires a deliberate choice within a specified timeframe.',
+        ],
+      },
+      {
+        heading: 'Who you can sue',
+        body: [
+          'In product liability cases, multiple parties in the supply chain may bear responsibility: the manufacturer of the product, the manufacturer of a component part (if the defect originated there), the distributor, and even the retailer who sold you the product.',
+          'In food contamination cases, the chain may run from a processing facility to a distributor to a grocery chain. In vehicle recalls, the automaker bears primary responsibility, but a supplier who manufactured a defective component may also be liable.',
+          'Suing multiple defendants is common in product liability litigation. Each defendant may dispute that their part of the chain was responsible, making cases more complex — but also potentially providing more sources of recovery.',
+        ],
+      },
+      {
+        heading: 'Reporting to the government regardless of legal action',
+        body: [
+          'Whether or not you pursue a legal claim, report your injury to the relevant government agency. These reports serve the public interest by flagging defective products that may still be harming others, and in some cases they trigger investigations that lead to recalls for products not yet recalled.',
+          'For consumer products, file a report at SaferProducts.gov, operated by the CPSC. For food and drug products, use FDA MedWatch at fda.gov/safety/medwatch or call 1-800-FDA-1088. For vehicle defects, file a complaint at nhtsa.gov/report-a-safety-problem.',
+          'Government reports are separate from legal claims and do not require you to have a lawyer. Filing a report does not waive your rights and does not obligate you to do anything further. It is simply the right thing to do if you were harmed by a product defect.',
+        ],
+      },
+      {
+        heading: 'Getting legal help',
+        body: [
+          'If you were seriously injured by a recalled product, consult a personal injury or product liability attorney. Most work on contingency — meaning you pay no upfront fee and the attorney takes a percentage of any settlement or verdict. This structure makes legal representation accessible even when the upfront costs would be prohibitive.',
+          'Look for attorneys who specifically handle product liability or consumer protection cases, since this area of law has distinct requirements around expert witnesses, product testing, and regulatory history.',
+          'Many bar associations have referral services, and organizations like the American Association for Justice (formerly the Association of Trial Lawyers of America) maintain directories of plaintiffs\' attorneys who handle consumer cases.',
+          'This article provides general information only and is not legal advice. Laws vary significantly by state and circumstance. Only an attorney familiar with the facts of your specific situation can advise you on whether you have a viable claim.',
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'How to report an unsafe product to the government', href: '/articles/how-to-report-unsafe-product' },
+      { label: 'Consumer safety guide', href: '/safety-guide' },
+      { label: 'Voluntary vs. mandatory recalls', href: '/articles/voluntary-vs-mandatory-recall' },
+      { label: 'Recall FAQ', href: '/faq' },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {
