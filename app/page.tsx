@@ -24,7 +24,7 @@ export default async function HomePage() {
           Safety Recalls &amp; Alerts
         </h1>
         <p className="text-gray-600 max-w-2xl">
-          Aggregated recall data from the FDA, NHTSA, and CPSC — updated every few hours.
+          Official recall notices from the FDA, USDA, NHTSA, and CPSC — in one place, updated every few hours.
           {urgentCount > 0 && (
             <span className="ml-2 text-urgent font-semibold">
               {urgentCount} active recall{urgentCount !== 1 ? 's' : ''} right now.
