@@ -215,10 +215,13 @@ export default function GlossaryPage() {
   return (
     <div className="max-w-3xl mx-auto py-8">
       <h1 className="text-2xl font-bold text-navy mb-2">Recall Glossary</h1>
-      <p className="text-gray-600 mb-8 text-sm leading-relaxed max-w-xl">
+      <p className="text-gray-600 mb-2 text-sm leading-relaxed max-w-xl">
         Plain-language definitions of terms used in recall notices, safety alerts, and government
         communications. Understanding these terms helps you quickly assess whether a recall
         affects you and what action to take.
+      </p>
+      <p className="text-xs text-muted mb-8">
+        Last reviewed: June 2026 · <Link href="/about#who-we-are" className="hover:underline">Chris L., Recall Radar</Link>
       </p>
 
       {/* Alphabet jump nav */}

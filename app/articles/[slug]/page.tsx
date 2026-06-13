@@ -100,10 +100,17 @@ export default async function ArticlePage({ params }: Props) {
         </h1>
         <p className="text-gray-600 leading-relaxed text-base mb-3">{article.intro}</p>
         <p className="text-xs text-muted">
-          Written by the{' '}
-          <Link href="/about#who-we-are" className="text-navy-light hover:underline">
-            Recall Radar editorial team
-          </Link>
+          Written by{' '}
+          {article.author ? (
+            <Link href="/about#who-we-are" className="text-navy-light hover:underline font-medium">
+              {article.author}
+            </Link>
+          ) : (
+            <>the{' '}
+            <Link href="/about#who-we-are" className="text-navy-light hover:underline">
+              Recall Radar editorial team
+            </Link></>
+          )}
           {' · '}Sourced from official government recall databases
           {article.lastReviewedDate && article.lastReviewedDate !== article.publishedDate && (
             <span className="ml-2 text-muted">· Last reviewed: {formatDate(article.lastReviewedDate)}</span>
@@ -111,10 +118,26 @@ export default async function ArticlePage({ params }: Props) {
         </p>
       </header>
 
+      {/* Table of contents */}
+      {article.sections.length >= 4 && (
+        <nav className="mb-8 bg-card border border-border rounded-lg p-4" aria-label="On this page">
+          <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-2">On this page</p>
+          <ol className="space-y-1 list-none">
+            {article.sections.map((section, i) => (
+              <li key={i}>
+                <a href={`#section-${i}`} className="text-sm text-navy-light hover:underline">
+                  {section.heading}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
       {/* Article body */}
       <div className="space-y-8">
         {article.sections.map((section, i) => (
-          <section key={i}>
+          <section key={i} id={`section-${i}`}>
             <h2 className="text-lg font-bold text-navy mb-3">{section.heading}</h2>
             <div className="space-y-3">
               {section.body.map((para, j) => (
@@ -125,6 +148,31 @@ export default async function ArticlePage({ params }: Props) {
             </div>
           </section>
         ))}
+      </div>
+
+      {/* Author bio */}
+      <div className="mt-10 pt-6 border-t border-border flex items-start gap-4">
+        <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 text-navy font-bold text-sm">
+          {article.author ? 'CL' : 'RR'}
+        </div>
+        <div>
+          <p className="text-sm font-semibold text-navy">
+            {article.author ?? 'Recall Radar Editorial Team'}
+          </p>
+          <p className="text-xs text-muted mb-1">
+            {article.author ? 'Founder & Editor, Recall Radar' : 'Recall Radar'}
+          </p>
+          <p className="text-xs text-gray-600 leading-relaxed">
+            {article.author
+              ? 'Chris monitors U.S. federal recall databases daily and writes about consumer product safety, food safety, and how the recall system works. He founded Recall Radar to make government recall data accessible to people who don\'t know which agency to check first.'
+              : 'The Recall Radar editorial team monitors FDA, USDA, NHTSA, and CPSC recall feeds and writes guides based on official government source material.'
+            }
+            {' '}
+            <Link href="/about#who-we-are" className="text-navy-light hover:underline">
+              About our team →
+            </Link>
+          </p>
+        </div>
       </div>
 
       {/* Related links */}

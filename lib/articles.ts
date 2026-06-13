@@ -12,6 +12,7 @@ export interface Article {
   readingMinutes: number;
   category: string;
   intro: string;
+  author?: string;
   sections: ArticleSection[];
   relatedLinks: { label: string; href: string }[];
   sources?: { label: string; url: string }[];
@@ -347,6 +348,7 @@ export const ARTICLES: Article[] = [
     metaDescription:
       'Millions of recalled products are still in homes and on roads across the United States. The notification system works better than it used to, but major gaps remain. Here is why recalls fail to reach people.',
     publishedDate: '2025-03-22',
+    author: 'Chris L.',
     readingMinutes: 5,
     category: 'Consumer Safety',
     intro:
@@ -1107,6 +1109,7 @@ export const ARTICLES: Article[] = [
     metaDescription:
       'Most recalls are voluntary — initiated by the company, not ordered by the government. Learn what that distinction means, whether voluntary recalls are less serious, and when the government can force a recall.',
     publishedDate: '2026-06-12',
+    author: 'Chris L.',
     readingMinutes: 5,
     category: 'Consumer Safety',
     intro:
@@ -1264,6 +1267,7 @@ export const ARTICLES: Article[] = [
     metaDescription:
       'Millions of used cars have open safety recalls that were never repaired. Learn how to check any vehicle before buying, what sellers are and are not required to tell you, and how to get a free fix.',
     publishedDate: '2026-06-12',
+    author: 'Chris L.',
     readingMinutes: 6,
     category: 'Vehicle Safety',
     intro:
@@ -1384,6 +1388,7 @@ export const ARTICLES: Article[] = [
     metaDescription:
       "A recall announcement doesn't mean your product has been pulled from shelves. Learn why recalls take so long to reach consumers — from investigation to notice to store removal to repair.",
     publishedDate: '2026-06-12',
+    author: 'Chris L.',
     readingMinutes: 6,
     category: 'Consumer Safety',
     intro:
@@ -1453,6 +1458,7 @@ export const ARTICLES: Article[] = [
       'A monthly editorial summary of recall patterns tracked in June 2026 — which categories were most active, notable individual recalls, and what the data says about seasonal trends.',
     publishedDate: '2026-06-12',
     lastReviewedDate: '2026-06-12',
+    author: 'Chris L.',
     readingMinutes: 5,
     category: 'Editorial',
     intro:
@@ -1512,6 +1518,7 @@ export const ARTICLES: Article[] = [
     metaDescription:
       "Finding out a product you already consumed, took, or used was recalled is stressful. Here's what to actually do — for food, medications, vehicles, and consumer products — based on what the risk actually is.",
     publishedDate: '2026-06-12',
+    author: 'Chris L.',
     readingMinutes: 7,
     category: 'Consumer Safety',
     intro:

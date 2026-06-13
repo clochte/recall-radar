@@ -142,8 +142,11 @@ export default function FAQPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <h1 className="text-2xl font-bold text-navy mb-2">Recall FAQ</h1>
-      <p className="text-gray-600 mb-8 text-sm">
+      <p className="text-gray-600 mb-2 text-sm">
         Common questions about product recalls and how Recall Radar works.
+      </p>
+      <p className="text-xs text-muted mb-8">
+        Last reviewed: June 2026 · <Link href="/about#who-we-are" className="hover:underline">Chris L., Recall Radar</Link>
       </p>
 
       <div className="space-y-6">
