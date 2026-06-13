@@ -86,6 +86,34 @@ export default function AboutPage() {
       </section>
 
       <section>
+        <h2 className="text-lg font-semibold text-navy mb-3">Our team</h2>
+        <div className="bg-card border border-border rounded-lg p-4 text-sm text-gray-600 leading-relaxed">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 rounded-full bg-navy/10 flex items-center justify-center shrink-0 text-navy font-bold text-sm">
+              CL
+            </div>
+            <div>
+              <p className="font-semibold text-navy">Chris L.</p>
+              <p className="text-xs text-muted mb-2">Founder &amp; Editor</p>
+              <p className="text-xs leading-relaxed">
+                Chris built Recall Radar after personally discovering that a food product in his refrigerator
+                had been under a Class I recall for three weeks — and that finding out required knowing
+                which of four federal agencies to check. He oversees data sources, editorial standards,
+                and article accuracy for the site.
+              </p>
+            </div>
+          </div>
+        </div>
+        <p className="text-xs text-muted mt-3 leading-relaxed">
+          Recall decisions are made by people, not algorithms. If you want to reach us directly,{' '}
+          <Link href="/contact" className="text-navy-light hover:underline">here's how</Link>.
+          We also maintain a public{' '}
+          <Link href="/corrections" className="text-navy-light hover:underline">corrections log</Link>
+          {' '}for any factual errors we fix.
+        </p>
+      </section>
+
+      <section>
         <h2 className="text-lg font-semibold text-navy mb-3">The problem this solves</h2>
         <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
           <p>

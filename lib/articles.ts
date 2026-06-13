@@ -14,6 +14,7 @@ export interface Article {
   intro: string;
   sections: ArticleSection[];
   relatedLinks: { label: string; href: string }[];
+  sources?: { label: string; url: string }[];
 }
 
 export const ARTICLES: Article[] = [
@@ -67,6 +68,11 @@ export const ARTICLES: Article[] = [
       { label: 'Recall glossary: Class I, Class II, Class III', href: '/glossary' },
       { label: 'Food recall FAQ', href: '/faq' },
     ],
+    sources: [
+      { label: 'CDC — Listeria (Listeriosis)', url: 'https://www.cdc.gov/listeria/index.html' },
+      { label: 'FDA — Listeria monocytogenes in Food', url: 'https://www.fda.gov/food/foodborne-pathogens/listeria-listeriosis' },
+      { label: 'USDA FSIS — Listeria and Food Safety', url: 'https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/listeria' },
+    ],
   },
   {
     slug: 'vehicle-recall-repairs-how-they-work',
@@ -118,6 +124,11 @@ export const ARTICLES: Article[] = [
       { label: 'Vehicle recall FAQ', href: '/faq' },
       { label: 'What NHTSA campaign numbers mean', href: '/glossary' },
     ],
+    sources: [
+      { label: 'NHTSA — Vehicle Safety Recalls', url: 'https://www.nhtsa.gov/vehicle-safety/recalls' },
+      { label: 'NHTSA — National Traffic and Motor Vehicle Safety Act', url: 'https://www.nhtsa.gov/laws-regulations/national-traffic-and-motor-vehicle-safety-act' },
+      { label: 'NHTSA — Check for recalls by VIN', url: 'https://www.nhtsa.gov/recalls' },
+    ],
   },
   {
     slug: 'undeclared-allergens-recall-risk',
@@ -166,6 +177,11 @@ export const ARTICLES: Article[] = [
       { label: 'Recall glossary: allergen terms', href: '/glossary' },
       { label: 'Subscribe to food recall alerts', href: '/subscribe' },
       { label: 'Consumer safety guide', href: '/safety-guide' },
+    ],
+    sources: [
+      { label: 'FDA — Food Allergen Labeling and Consumer Protection Act (FALCPA)', url: 'https://www.fda.gov/food/food-labeling-nutrition/food-allergen-labeling-and-consumer-protection-act-2004-falcpa' },
+      { label: 'FDA — FASTER Act and Sesame Allergy', url: 'https://www.fda.gov/food/food-allergies/food-allergen-labeling' },
+      { label: 'CDC — Food Allergies', url: 'https://www.cdc.gov/nceh/features/food-allergies/index.html' },
     ],
   },
   {
@@ -217,6 +233,11 @@ export const ARTICLES: Article[] = [
       { label: 'Medication recall FAQ', href: '/faq' },
       { label: 'Consumer safety guide', href: '/safety-guide' },
       { label: 'Subscribe to medication recall alerts', href: '/subscribe' },
+    ],
+    sources: [
+      { label: 'FDA — Drug Recalls', url: 'https://www.fda.gov/drugs/drug-safety-and-availability/drug-recalls' },
+      { label: 'FDA — openFDA Drug Enforcement Database', url: 'https://open.fda.gov/apis/drug/enforcement/' },
+      { label: 'FDA — National Drug Code (NDC) Explained', url: 'https://www.fda.gov/drugs/drug-approvals-and-databases/national-drug-code-directory' },
     ],
   },
   {
@@ -1072,6 +1093,12 @@ export const ARTICLES: Article[] = [
       { label: 'Recall classes explained (Class I, II, III)', href: '/articles/recall-classes-explained' },
       { label: 'How to return recalled food for a refund', href: '/articles/returning-recalled-food-for-refund' },
       { label: 'Recall glossary', href: '/glossary' },
+    ],
+    sources: [
+      { label: 'FDA — How to Find Recall Information', url: 'https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts' },
+      { label: 'NHTSA — Check Recalls by VIN', url: 'https://www.nhtsa.gov/recalls' },
+      { label: 'CPSC — SaferProducts.gov Product Recall Lookup', url: 'https://www.saferproducts.gov' },
+      { label: 'USDA FSIS — Recalls and Public Health Alerts', url: 'https://www.fsis.usda.gov/recalls' },
     ],
   },
   {

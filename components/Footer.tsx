@@ -9,10 +9,16 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-4 gap-8">
           <div>
             <p className="text-white font-semibold text-sm mb-2">📡 Recall Radar</p>
-            <p className="text-xs leading-relaxed">
+            <p className="text-xs leading-relaxed mb-3">
               A free public service aggregating official recall and safety alert data.
               Not affiliated with any government agency.
             </p>
+            <a
+              href="mailto:hello@recallradar.company?subject=Tip: missed recall"
+              className="text-xs text-white/60 hover:text-white underline underline-offset-2"
+            >
+              Spotted a recall we missed? Tip us →
+            </a>
           </div>
           <div>
             <p className="text-white font-semibold text-sm mb-2">Categories</p>
@@ -37,6 +43,7 @@ export default function Footer() {
               <li><Link href="/faq" className="hover:text-white">FAQ</Link></li>
               <li><Link href="/about" className="hover:text-white">About Recall Radar</Link></li>
               <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
+              <li><Link href="/corrections" className="hover:text-white">Corrections</Link></li>
               <li><Link href="/subscribe" className="hover:text-white">Email Alerts</Link></li>
               <li><Link href="/manage-subscription" className="hover:text-white">Manage Alerts</Link></li>
               <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>

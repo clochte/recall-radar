@@ -148,6 +148,30 @@ export default async function ArticlePage({ params }: Props) {
         </div>
       )}
 
+      {/* Official sources */}
+      {article.sources && article.sources.length > 0 && (
+        <div className="mt-10 pt-6 border-t border-border">
+          <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-3">
+            Official sources
+          </p>
+          <ul className="space-y-1.5">
+            {article.sources.map((s) => (
+              <li key={s.url}>
+                <a
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-navy-light hover:underline flex items-center gap-1.5"
+                >
+                  <span className="shrink-0 text-muted">↗</span>
+                  {s.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {/* Disclaimer */}
       <p className="mt-8 text-xs text-muted border border-border rounded-lg px-4 py-3 bg-card">
         This article is for informational purposes only. For official recall notices,
@@ -155,6 +179,18 @@ export default async function ArticlePage({ params }: Props) {
         <Link href="/about" className="text-navy-light hover:underline">
           About our data sources →
         </Link>
+      </p>
+
+      {/* Spotted an error? */}
+      <p className="mt-4 text-xs text-muted">
+        Spotted an error or outdated information in this article?{' '}
+        <a
+          href={`mailto:hello@recallradar.company?subject=Article correction: ${article.title}`}
+          className="text-navy-light hover:underline font-medium"
+        >
+          Let us know →
+        </a>
+        {' '}We review all reports and update content within 48 hours.
       </p>
 
       {/* Other articles */}
