@@ -1554,6 +1554,76 @@ export const ARTICLES: Article[] = [
       { label: 'What is Listeria and why does it cause so many recalls?', href: '/articles/what-is-listeria-food-recalls' },
     ],
   },
+  {
+    slug: 'car-seat-recalls-parents-guide',
+    title: "Car Seat Recalls: How to Check, What to Do, and Why You Can't Buy a Used One",
+    metaDescription:
+      "Car seats are among the most frequently recalled children's products. Learn how to check your seat's model number, what recall remedies look like, why buying or accepting a used seat is risky, and what to do if your seat is recalled.",
+    publishedDate: '2026-06-12',
+    lastReviewedDate: '2026-06-12',
+    readingMinutes: 6,
+    category: 'Consumer Safety',
+    intro:
+      "Car seats are recalled more frequently than most parents realize — the CPSC issues car seat recalls every year, covering infant seats, convertible seats, booster seats, and combination seat-harness products. The stakes are high and the stakes are specific: a car seat with a structural defect or harness failure can fail exactly when it is needed most. Knowing how to check your seat, what a recall actually requires you to do, and why secondhand seats are a particular risk is information worth having before you need it.",
+    sections: [
+      {
+        heading: 'Why car seats are recalled so frequently',
+        body: [
+          "Car seats are complex safety devices made from dozens of components — harness straps, buckle mechanisms, chest clips, structural foam, base attachment systems, and seat shells — each of which must meet CPSC and NHTSA federal safety standards. Any component that fails to meet those standards, or that fails under foreseeable use conditions, can trigger a recall.",
+          "Common reasons for car seat recalls include harness buckle failures (buckles that are difficult to unbuckle in an emergency, or that release unexpectedly), chest clip defects, base attachment problems that affect how well the seat installs in the vehicle, foam or structural failures that could reduce crash protection, and labeling errors that provide incorrect installation instructions. Some recalls are initiated by the manufacturer after internal testing; others result from consumer complaints or CPSC investigation.",
+          "Car seat recalls are treated with particular urgency because the product's entire purpose is to protect a child in a crash. A defect that reduces the seat's performance by 10% is not a minor quality issue — it is a direct reduction in the protection available at the most critical moment.",
+        ],
+      },
+      {
+        heading: 'How to find your car seat model number and manufacture date',
+        body: [
+          "Every car seat has a model number and a manufacture date. These are the two identifiers you need to check against a recall notice. They appear on a label affixed to the bottom or back of the seat shell — not on the box, not on the instruction manual, but physically on the seat itself.",
+          "The manufacture date is typically printed in a month/year format: 'Manufactured: 03/2023' or 'Date of Manufacture: March 2023'. Some seats also include a sticker on the harness or base. The model number may appear on the same label or on a separate sticker, and may be accompanied by a product name (e.g., 'SafeRide Pro 65, Model SR-65A').",
+          "If you cannot find the label — it may have worn off, been covered by a seat protector, or removed — check the instruction manual (which should list the model number on the cover) or contact the manufacturer with your purchase date and retailer. Manufacturers keep records of what was sold and when.",
+        ],
+      },
+      {
+        heading: 'Checking your seat against a recall notice',
+        body: [
+          "When a car seat recall is issued, the CPSC notice lists the specific model numbers and manufacture date ranges covered. A recall may cover one model, several models, or an entire product line — but it will always specify which manufacture dates are included. A seat of the same model manufactured before or after the specified date range is not recalled.",
+          "Check your seat against the CPSC recall database at cpsc.gov/recalls. You can search by brand name or product category. Recall Radar also aggregates CPSC notices — search for your brand in the products section.",
+          "If your seat's model number and manufacture date match what is listed in the recall, stop using the seat until the remedy is applied. For car seats, the remedy is almost always a replacement part (a new buckle, new harness straps, a new base component) provided free by the manufacturer, or in some cases a full replacement seat. The CPSC recall notice will provide the manufacturer's hotline and remedy instructions.",
+        ],
+      },
+      {
+        heading: 'What a car seat recall remedy actually involves',
+        body: [
+          "Most car seat recalls result in a free repair kit sent directly to registered owners, or a voucher for a replacement seat. The process: contact the manufacturer using the phone number or website in the recall notice, provide your seat model number and manufacture date, and they will send the remedy directly.",
+          "If you registered your car seat with the manufacturer after purchase, you may receive proactive notification of any recall affecting your seat. This is one of the strongest reasons to register juvenile products — the manufacturer contacts you rather than you having to discover the recall yourself.",
+          "Do not continue using a recalled car seat while waiting for the remedy unless the CPSC notice explicitly states the seat remains safe to use in the interim. Some recalls allow continued use while waiting for a repair kit; others advise stopping use immediately. The notice will specify.",
+        ],
+      },
+      {
+        heading: "Why you should never buy or accept a used car seat",
+        body: [
+          "This is one of the most important and least followed child safety guidelines: do not buy used car seats, and do not accept them as gifts or hand-me-downs unless you can fully verify their history.",
+          "The reasons are practical, not theoretical. First, you cannot reliably verify whether a used car seat has been in a moderate or severe crash. A car seat that has been in a crash may look identical to an undamaged one but have compromised structural integrity — foam that has deformed, plastics that have microfractured, or harness attachment points that have been stressed beyond their design limits. Most manufacturers and the American Academy of Pediatrics recommend replacing a seat after any crash, even a minor one, but there is no way to confirm a seat's crash history when buying it used.",
+          "Second, recalled car seats regularly appear at garage sales, on Facebook Marketplace, and in thrift stores. The seller may not know about the recall; the recall may have been issued after the original purchase; or the recall remedy may never have been applied. You have no way to confirm the seat's recall history from the outside.",
+          "Third, car seat expiration dates are real. Most car seats expire 6 to 10 years after the manufacture date — the date is printed on the label. Foam degrades, plastics become brittle, and harness materials weaken over time. A seat that is safe today may not meet safety standards five years from now. When you accept a used seat of unknown age, you may be installing an expired product.",
+          "The exception: accepting a seat from a family member whose purchase history, crash history, and maintenance you can personally verify. Even then, check the manufacture date and run the model number against the recall database before use.",
+        ],
+      },
+      {
+        heading: 'What to do with a recalled or expired car seat',
+        body: [
+          "A recalled car seat should not be donated, given away, or sold. If the recall provides a full replacement, follow the manufacturer's instructions for returning or destroying the old seat. Some manufacturers send a prepaid return label; others instruct you to cut the harness straps and render the seat unusable before disposal.",
+          "An expired car seat should also not be donated or given away. Cut the straps, clearly label the seat 'EXPIRED — DO NOT USE,' and dispose of it in the trash. Some communities hold car seat recycling events where seats are collected and shredded; these prevent the seats from being picked up and reused.",
+          "If a car seat is recalled and you cannot find the remedy instructions — the manufacturer has gone out of business, the website is down, the hotline is disconnected — contact the CPSC directly at 1-800-638-2772. The CPSC maintains records of remedies for all issued recalls.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: "Children's product recalls", href: '/products/children' },
+      { label: "Children's products and recalls: parents' guide", href: '/articles/childrens-products-recalls-parents-guide' },
+      { label: 'How to read a recall notice', href: '/articles/how-to-read-a-recall-notice' },
+      { label: 'Browse CPSC product recalls', href: '/products' },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): Article | undefined {

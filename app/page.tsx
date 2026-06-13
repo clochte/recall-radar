@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { getAllRecalls } from '@/lib/recalls';
 import RecallsExplorer from '@/components/RecallsExplorer';
 import RecallCard from '@/components/RecallCard';
+import { ARTICLES } from '@/lib/articles';
 
 export const metadata: Metadata = {
   title: 'Recall Radar — Safety Recalls & Alerts',
@@ -118,6 +119,38 @@ export default async function HomePage() {
           <Link href="/about" className="text-navy-light hover:underline">Learn more →</Link>
         </p>
       </div>
+
+      {/* Featured guides */}
+      {(() => {
+        const featured = [
+          ARTICLES.find((a) => a.slug === 'already-used-recalled-product'),
+          ARTICLES.find((a) => a.slug === 'how-to-read-a-recall-notice'),
+          ARTICLES.find((a) => a.slug === 'used-car-recalls-before-you-buy'),
+          ARTICLES.find((a) => a.slug === 'what-is-listeria-food-recalls'),
+        ].filter(Boolean);
+        if (!featured.length) return null;
+        return (
+          <div className="mt-14 pt-10 border-t border-border">
+            <div className="flex items-baseline justify-between mb-5">
+              <h2 className="text-lg font-bold text-navy">From our safety guides</h2>
+              <Link href="/articles" className="text-sm text-navy-light hover:underline">All articles →</Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {featured.map((article) => article && (
+                <Link
+                  key={article.slug}
+                  href={`/articles/${article.slug}`}
+                  className="bg-card border border-border rounded-lg p-4 hover:border-navy transition-colors group"
+                >
+                  <p className="text-xs font-semibold text-muted uppercase tracking-wide mb-1">{article.category}</p>
+                  <p className="text-sm font-semibold text-navy leading-snug group-hover:underline mb-2">{article.title}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed line-clamp-2">{article.intro}</p>
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

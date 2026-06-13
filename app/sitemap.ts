@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/food/meat`, changeFrequency: 'hourly', priority: 0.85 },
     { url: `${baseUrl}/food/allergens`, changeFrequency: 'hourly', priority: 0.85 },
     { url: `${baseUrl}/vehicles`, changeFrequency: 'hourly', priority: 0.9 },
+    { url: `${baseUrl}/vehicles/airbag`, changeFrequency: 'hourly', priority: 0.85 },
     { url: `${baseUrl}/medications`, changeFrequency: 'hourly', priority: 0.9 },
     { url: `${baseUrl}/medications/class-i`, changeFrequency: 'hourly', priority: 0.85 },
     { url: `${baseUrl}/products`, changeFrequency: 'hourly', priority: 0.9 },

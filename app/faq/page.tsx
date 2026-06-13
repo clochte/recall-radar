@@ -122,8 +122,25 @@ const faqs = [
 ];
 
 export default function FAQPage() {
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
+
   return (
     <div className="max-w-2xl mx-auto py-8">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <h1 className="text-2xl font-bold text-navy mb-2">Recall FAQ</h1>
       <p className="text-gray-600 mb-8 text-sm">
         Common questions about product recalls and how Recall Radar works.
