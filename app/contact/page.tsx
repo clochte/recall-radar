@@ -37,7 +37,16 @@ export default function ContactPage() {
             errors in the source data carry through to our pages. If you notice a recall that
             is showing incorrect information — wrong category, outdated status, or a title
             that does not match the official notice — please let us know the recall name and
-            the correction. We will investigate and update the relevant page.
+            the correction.
+          </p>
+          <p className="text-sm text-gray-600 mt-2">
+            When we receive a correction report, we check the information on our page against
+            the official government source within 48 hours. If we find an error in how we have
+            presented the information — a misclassified category, a severity label that does
+            not match the source, or editorial content that no longer reflects current agency
+            guidance — we correct it. We cannot modify recall notices themselves, which come
+            directly from the issuing agency, but we can correct any error in our own content
+            and classifications.
           </p>
         </section>
 

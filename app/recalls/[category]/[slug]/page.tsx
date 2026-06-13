@@ -137,6 +137,14 @@ export default async function RecallDetailPage({ params }: Props) {
               </div>
             </div>
 
+            {/* Editor's note — only for urgent recalls with a specific hazard */}
+            {hazard?.editorNote && recall.severity === 'urgent' && (
+              <div className="border-l-4 border-navy bg-navy/5 rounded-r-lg px-4 py-3 mb-6">
+                <p className="text-xs font-semibold text-navy uppercase tracking-wide mb-1">Editorial note</p>
+                <p className="text-sm text-gray-700 leading-relaxed italic">{hazard.editorNote}</p>
+              </div>
+            )}
+
             {/* Hazard-specific info — shown first when matched, most directly relevant */}
             {hazard && (
               <div className="bg-amber-50 border border-amber-200 rounded-lg p-5 mb-6">

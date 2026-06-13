@@ -46,13 +46,17 @@ export default async function ArticlePage({ params }: Props) {
     headline: article.title,
     description: article.metaDescription,
     datePublished: article.publishedDate,
-    dateModified: article.publishedDate,
+    dateModified: article.lastReviewedDate ?? article.publishedDate,
     publisher: {
       '@type': 'Organization',
       name: 'Recall Radar',
       url: 'https://recallradar.company',
     },
-    author: { '@type': 'Organization', name: 'Recall Radar' },
+    author: {
+      '@type': 'Organization',
+      name: 'Recall Radar Editorial Team',
+      url: 'https://recallradar.company/about#who-we-are',
+    },
     articleSection: article.category,
   };
 
@@ -97,10 +101,13 @@ export default async function ArticlePage({ params }: Props) {
         <p className="text-gray-600 leading-relaxed text-base mb-3">{article.intro}</p>
         <p className="text-xs text-muted">
           Written by the{' '}
-          <Link href="/about" className="text-navy-light hover:underline">
+          <Link href="/about#who-we-are" className="text-navy-light hover:underline">
             Recall Radar editorial team
           </Link>
           {' · '}Sourced from official government recall databases
+          {article.lastReviewedDate && article.lastReviewedDate !== article.publishedDate && (
+            <span className="ml-2 text-muted">· Last reviewed: {formatDate(article.lastReviewedDate)}</span>
+          )}
         </p>
       </header>
 

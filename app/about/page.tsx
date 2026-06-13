@@ -60,6 +60,31 @@ export default function AboutPage() {
         </p>
       </div>
 
+      <section id="who-we-are">
+        <h2 className="text-lg font-semibold text-navy mb-3">Who we are</h2>
+        <div className="space-y-3 text-sm text-gray-600 leading-relaxed">
+          <p>
+            Recall Radar was built out of a specific frustration: realizing that a food product already eaten
+            had been recalled weeks earlier — and that finding out required knowing to check the FDA website
+            first, then the USDA, then figuring out what lot number meant, then understanding why the label
+            on the package didn't match any of the identifiers in the notice. That process is broken for
+            most people, and the stakes are high enough that it shouldn't be.
+          </p>
+          <p>
+            The editorial team monitors FDA, USDA FSIS, NHTSA, and CPSC recall feeds daily. Every article
+            on this site is written against official government source material — statutes, agency guidance
+            documents, published research, and the recall notices themselves — and reviewed for factual
+            accuracy before publication. When a government agency updates its guidance, expands a recall,
+            or reclassifies a notice, we update our content to reflect it. Our job is to explain what the
+            official data means, not to editorialize beyond what it supports.
+          </p>
+          <p>
+            We are not affiliated with any government agency and have no authority to issue or modify recalls.
+            Every recall page links to the official source so you can always verify what we've written.
+          </p>
+        </div>
+      </section>
+
       <section>
         <h2 className="text-lg font-semibold text-navy mb-3">The problem this solves</h2>
         <div className="space-y-3 text-sm text-gray-600 leading-relaxed">

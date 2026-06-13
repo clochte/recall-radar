@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs">
-          <p>© 2025 Recall Radar. Data sourced from public government feeds.</p>
+          <p>© 2026 Recall Radar. Founded 2025. Data sourced from public government feeds.</p>
           <div className="flex gap-4">
             <Link href="/about" className="hover:text-white">About</Link>
             <Link href="/contact" className="hover:text-white">Contact</Link>

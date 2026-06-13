@@ -8,6 +8,7 @@ export interface Article {
   title: string;
   metaDescription: string;
   publishedDate: string;   // ISO date string
+  lastReviewedDate?: string; // ISO date string — shown on article pages, used in schema dateModified
   readingMinutes: number;
   category: string;
   intro: string;
@@ -1416,6 +1417,66 @@ export const ARTICLES: Article[] = [
       { label: 'Subscribe to recall alerts', href: '/subscribe' },
       { label: 'VIN lookup for vehicle recalls', href: '/vin-lookup' },
       { label: 'Why people never hear about recalls', href: '/articles/why-people-never-hear-about-recalls' },
+    ],
+  },
+  {
+    slug: 'recall-roundup-june-2026',
+    title: 'Recall Roundup: June 2026',
+    metaDescription:
+      'A monthly editorial summary of recall patterns tracked in June 2026 — which categories were most active, notable individual recalls, and what the data says about seasonal trends.',
+    publishedDate: '2026-06-12',
+    lastReviewedDate: '2026-06-12',
+    readingMinutes: 5,
+    category: 'Editorial',
+    intro:
+      'Each month we review the recall data across all four government feeds — FDA, USDA FSIS, NHTSA, and CPSC — and pull out what we think is worth paying attention to beyond the individual notices. June 2026 is a useful moment to look at because summer consistently produces a different recall profile than winter, and this year follows that pattern.',
+    sections: [
+      {
+        heading: 'Food recalls: summer patterns are showing up on schedule',
+        body: [
+          'June is historically one of the more active months for food recalls, and this year is consistent with that pattern. The main driver is produce. Leafy greens, raw sprouts, and fresh-cut fruit reach peak distribution in June, and these products carry inherent Listeria and E. coli risk because they are not cooked before eating. Unlike winter, when most food recalls center on processed and ready-to-eat products like deli meats, summer adds fresh produce to the mix.',
+          'The USDA FSIS side has been active with ready-to-eat meat recalls as well. This is partly a function of Listeria\'s environmental persistence — summer heat and the increased humidity in processing facilities create conditions where Listeria colonies in drains and equipment can proliferate faster. Facilities that had clean environmental monitoring results in spring may find contamination in June inspections.',
+          'The practical takeaway: if you are in a high-risk group (pregnant, elderly, immunocompromised), summer is the time to be more careful about checking lot numbers on deli meats and fresh produce before consuming them rather than after hearing about a recall.',
+        ],
+      },
+      {
+        heading: 'Medication recalls: nitrosamine notices continue',
+        body: [
+          'The FDA\'s ongoing effort to address nitrosamine contamination in drug manufacturing is producing a steady stream of drug recalls that has now continued for several years. Nitrosamines — probable human carcinogens found as impurities in some drug manufacturing processes — were first flagged as a major concern in blood pressure medications in 2018 and have since been identified in a wider range of drug classes including metformin, ranitidine (now withdrawn from market entirely), and various antibiotics.',
+          'These recalls are classified as Class I because the FDA is conservative about probable carcinogens regardless of the absolute risk from any given exposure. For patients taking a recalled nitrosamine-contaminated medication, the FDA and most physicians note that short-term exposure at the levels found in recalled drugs carries a very low absolute cancer risk — the recalls are based on long-term risk models applied conservatively. If your medication has been recalled for nitrosamine contamination, contact your pharmacist to switch to an unaffected lot, but do not stop the medication abruptly.',
+          'The broader picture here is that the FDA\'s nitrosamine testing program has fundamentally changed how drug manufacturers test for impurities, and the recalls represent that transition. We are likely to see nitrosamine-related notices continue through 2026 and into 2027 as the industry works through existing inventory and manufacturing process reviews.',
+        ],
+      },
+      {
+        heading: 'Vehicle recalls: no single large-scale campaign, but breadth is notable',
+        body: [
+          'June 2026 does not feature a single headline vehicle recall on the scale of the Takata airbag campaign, but the breadth of active notices across manufacturers is worth noting. Software-related recalls have increased year over year as vehicles incorporate more onboard computing — a recall for a software defect that can cause an unexpected warning light, an incorrect fuel gauge reading, or a failure in driver assistance systems is now a normal part of the NHTSA feed in a way it was not five years ago.',
+          'The practical implication for drivers is that vehicle recalls increasingly require a software update rather than a physical repair, and these updates can often be performed by any authorized dealer in under an hour. If you have a newer vehicle with open recall notices, the barrier to getting them resolved is lower than it has historically been for mechanical repairs.',
+          'The other pattern worth watching is brake and steering component recalls across several domestic and import manufacturers. These are not connected — they involve different components from different suppliers — but the cluster is a reminder that safety-critical mechanical components are subject to the same supply chain pressures and manufacturing variability as everything else.',
+        ],
+      },
+      {
+        heading: 'Consumer products: e-bike and battery recalls remain elevated',
+        body: [
+          'The CPSC\'s recall rate for e-bikes, electric scooters, and lithium-ion battery products has been elevated for three years and does not appear to be declining. The fundamental issue is a combination of market factors: an influx of lower-cost products from manufacturers with less rigorous quality control, battery cells sourced from suppliers with variable quality standards, and an explosion in product volume that has outpaced safety certification infrastructure.',
+          'E-bike fires are disproportionately fatal and destructive when they occur — a lithium-ion battery in a densely packed apartment can cause a fire that spreads faster than occupants can evacuate. New York City, where e-bike usage is high and apartments are dense, has seen a significant number of fatal fires linked to e-bike batteries. The CPSC and several city fire departments have issued guidance recommending that e-bikes and battery-powered personal mobility devices not be charged indoors overnight.',
+          'For consumers: if you own an e-bike or electric scooter, check the brand and model against current CPSC recall notices. If your product is recalled, stop charging it indoors until the issue is resolved. If you are buying a new e-bike, prioritize products from established manufacturers with UL 2849 certification (electrical systems for e-bikes) and avoid charging any lithium-ion device unattended or in a location without a clear exit path.',
+        ],
+      },
+      {
+        heading: 'What to watch in July',
+        body: [
+          'Produce recalls typically peak in July and August as summer distribution volume reaches its highest point. Bagged salads, fresh-cut melons, and sprouts will be the categories most worth monitoring. If you receive email alerts from Recall Radar, make sure food is included in your subscription during these months.',
+          'NHTSA has several ongoing investigations into vehicle defects that have not yet resulted in formal recall campaigns as of this writing. Investigations that convert to recalls often do so 60 to 90 days after opening. We will note any significant new campaigns in the July roundup.',
+          'The CPSC has also indicated increased enforcement focus on children\'s products sold through online marketplaces. If you are buying children\'s toys, baby gear, or juvenile furniture through a third-party marketplace, look for UL or ASTM certification markings and cross-reference the model number against the CPSC recall database before purchase.',
+        ],
+      },
+    ],
+    relatedLinks: [
+      { label: 'Subscribe to recall alerts', href: '/subscribe' },
+      { label: 'Browse food recalls', href: '/food' },
+      { label: 'Browse vehicle recalls', href: '/vehicles' },
+      { label: 'Children\'s product recalls', href: '/products/children' },
     ],
   },
   {

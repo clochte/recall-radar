@@ -2,6 +2,7 @@ export interface HazardInfo {
   title: string;
   body: string;
   tip?: string;
+  editorNote?: string; // 1-2 sentence editorial callout shown above the hazard block on urgent recall pages
 }
 
 export function getHazardInfo(recall: {
@@ -17,6 +18,7 @@ export function getHazardInfo(recall: {
       title: 'About Listeria contamination',
       body: 'Listeria monocytogenes is a bacterium that causes listeriosis, a serious foodborne illness. Symptoms — including fever, muscle aches, nausea, and diarrhea — typically appear 1 to 30 days after exposure, making it difficult to trace back to a specific food. Listeriosis is especially dangerous for pregnant women, where it can cause miscarriage, stillbirth, or premature delivery; adults 65 and older; and people with weakened immune systems due to illness or medication.',
       tip: 'If you are pregnant, elderly, or immunocompromised and have recently consumed the recalled product, contact your healthcare provider promptly, even if you feel well.',
+      editorNote: 'Listeria in ready-to-eat food is the highest-mortality category of food recall — the pathogen survives refrigeration and the window between exposure and symptoms can be weeks. If this product has been in your refrigerator, check the lot numbers now.',
     };
   }
 
@@ -25,6 +27,7 @@ export function getHazardInfo(recall: {
       title: 'About Salmonella contamination',
       body: 'Salmonella is one of the most common causes of foodborne illness in the United States, responsible for an estimated 1.35 million infections annually. Symptoms include diarrhea, fever, and abdominal cramps, usually appearing 6 hours to 6 days after exposure and lasting 4 to 7 days. Most people recover without treatment, but young children, elderly adults, and immunocompromised individuals are at higher risk of serious illness requiring hospitalization.',
       tip: 'Wash hands thoroughly after handling any recalled product and disinfect any surfaces it may have contacted before disposal.',
+      editorNote: 'Salmonella recalls are among the most common in the food category. Symptoms appear quickly — within a week of exposure — so if you ate this product recently, watch for fever and gastrointestinal symptoms.',
     };
   }
 
@@ -33,6 +36,7 @@ export function getHazardInfo(recall: {
       title: 'About E. coli contamination',
       body: "Certain strains of Escherichia coli — particularly E. coli O157:H7 and other Shiga toxin-producing strains — can cause severe illness. Symptoms include severe stomach cramps, bloody diarrhea, and vomiting, typically appearing 3 to 4 days after exposure. In a small percentage of cases, especially in children under 5, the infection can lead to hemolytic uremic syndrome (HUS), a type of kidney failure that can be life-threatening.",
       tip: 'Seek medical attention immediately if you develop severe abdominal pain or bloody diarrhea after consuming a recalled product.',
+      editorNote: 'E. coli O157:H7 recalls warrant immediate action. Bloody diarrhea is a warning sign of potential kidney involvement — do not wait it out.',
     };
   }
 
@@ -90,6 +94,7 @@ export function getHazardInfo(recall: {
       title: 'About airbag recalls',
       body: 'Airbag recalls — particularly those involving Takata inflators — are among the most serious vehicle safety issues in recent history. Faulty inflators can rupture and send metal fragments into the vehicle cabin at high velocity during deployment, causing serious injury or death. Airbag recalls are not limited to new vehicles; inflators can degrade over time, meaning older vehicles may be at greater risk. Exposure to heat and humidity accelerates the degradation of affected inflators.',
       tip: 'Contact your dealership immediately to schedule a free repair. If your vehicle is on this recall and you are in a high-risk region (hot and humid climate), NHTSA may recommend limiting use of the vehicle until the repair is completed.',
+      editorNote: 'Airbag recalls are among the most urgent in the vehicle category — a defective inflator can cause lethal injury during a crash that the airbag was supposed to prevent. Schedule the free dealer repair even if parts are on backorder, so you are on the waiting list.',
     };
   }
 
@@ -98,6 +103,7 @@ export function getHazardInfo(recall: {
       title: 'About brake system recalls',
       body: 'Brake system defects are among the most critical vehicle safety issues because they directly affect the driver\'s ability to slow or stop the vehicle. Recalls may involve master cylinders, brake lines, calipers, anti-lock braking system (ABS) components, or electronic stability control systems. Brake defects can result in extended stopping distances, complete brake failure, or unexpected vehicle behavior during emergency maneuvers.',
       tip: 'Have the vehicle inspected by a dealer before driving in high-traffic conditions or at highway speeds. Brake repairs are always performed free of charge under a safety recall.',
+      editorNote: 'Brake defects can worsen with use. If your vehicle is included in this recall, schedule the free dealer repair promptly rather than waiting.',
     };
   }
 
