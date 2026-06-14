@@ -10,8 +10,7 @@ export const metadata: Metadata = {
   description: 'The most recent safety recalls across food, vehicles, medications, and consumer products from FDA, NHTSA, USDA, and CPSC. Updated every few hours.',
 };
 
-function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; count: number }[], urgentCount: number): string {
-  const now = Date.now();
+function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; count: number }[], urgentCount: number, now: number): string {
   const sevenDays = 7 * 24 * 60 * 60 * 1000;
   const thisWeekCount = recent.filter((r) => now - new Date(r.date).getTime() < sevenDays).length;
 
@@ -58,6 +57,7 @@ function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; c
 
 export default async function WeeklyPage() {
   const recalls = await getAllRecalls();
+  const now = Date.now();
   const recent = recalls.slice(0, 60);
 
   const latestDate = recent[0]?.date ?? '';
@@ -72,7 +72,7 @@ export default async function WeeklyPage() {
     .sort((a, b) => b.count - a.count);
 
   const urgentCount = recent.filter((r) => r.severity === 'urgent').length;
-  const editorial = buildEditorialSummary(recent, byCat, urgentCount);
+  const editorial = buildEditorialSummary(recent, byCat, urgentCount, now);
 
   return (
     <div>
