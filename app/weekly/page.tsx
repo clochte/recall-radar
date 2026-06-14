@@ -5,14 +5,16 @@ import type { RecallCategory, Recall } from '@/lib/types';
 import RecallCard from '@/components/RecallCard';
 import AdPlaceholder from '@/components/AdPlaceholder';
 
+
 export const metadata: Metadata = {
   title: 'New This Week — Latest Safety Recalls',
   description: 'The most recent safety recalls across food, vehicles, medications, and consumer products from FDA, NHTSA, USDA, and CPSC. Updated every few hours.',
 };
 
-function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; count: number }[], urgentCount: number, now: number): string {
+function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; count: number }[], urgentCount: number): string {
   const sevenDays = 7 * 24 * 60 * 60 * 1000;
-  const thisWeekCount = recent.filter((r) => now - new Date(r.date).getTime() < sevenDays).length;
+  const latestMs = recent.length > 0 ? new Date(recent[0].date).getTime() : 0;
+  const thisWeekCount = recent.filter((r) => latestMs - new Date(r.date).getTime() < sevenDays).length;
 
   const top = [...byCat].sort((a, b) => b.count - a.count)[0];
   const dominated = top && top.count > recent.length * 0.4;
@@ -57,7 +59,6 @@ function buildEditorialSummary(recent: Recall[], byCat: { cat: RecallCategory; c
 
 export default async function WeeklyPage() {
   const recalls = await getAllRecalls();
-  const now = Date.now();
   const recent = recalls.slice(0, 60);
 
   const latestDate = recent[0]?.date ?? '';
@@ -72,7 +73,7 @@ export default async function WeeklyPage() {
     .sort((a, b) => b.count - a.count);
 
   const urgentCount = recent.filter((r) => r.severity === 'urgent').length;
-  const editorial = buildEditorialSummary(recent, byCat, urgentCount, now);
+  const editorial = buildEditorialSummary(recent, byCat, urgentCount);
 
   return (
     <div>
